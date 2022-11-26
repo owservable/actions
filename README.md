@@ -3,17 +3,18 @@
 # @owservable/actions
 
 - functions
-	- findAction,
-	- runActionAsCommand,
-	- getOptionAndDefaultValue,
+	- findAction
+	- runActionAsCommand
+	- getOptionAndDefaultValue
 
 
 - interfaces
-	- ActionInterface,
-	- ActionAsWorkerInterface,
-	- ActionAsCronjobInterface,
-	- ActionAsControllerInterface,
-	- ActionAsCommandInterface,
+	- ActionInterface
+	- ActionAsWorkerInterface
+	- ActionAsWatcherInterface
+	- ActionAsCommandInterface
+	- ActionAsCronjobInterface
+	- ActionAsControllerInterface
 
 
 - abstracts
