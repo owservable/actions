@@ -12,17 +12,24 @@ import ActionAsCronjobInterface from './interfaces/action.as.cronjob.interface';
 import ActionAsControllerInterface from './interfaces/action.as.controller.interface';
 import ActionAsCommandInterface from './interfaces/action.as.command.interface';
 
+// abstracts
+import Action from './abstracts/action';
+
 export {
 	// functions
 	findAction,
 	runActionAsCommand,
 	getOptionAndDefaultValue,
+
 	// interfaces
 	ActionInterface,
 	ActionAsWorkerInterface,
 	ActionAsCronjobInterface,
 	ActionAsControllerInterface,
-	ActionAsCommandInterface
+	ActionAsCommandInterface,
+
+	// abstracts
+	Action
 };
 
 const OwservableActions = {};
