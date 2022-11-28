@@ -1,7 +1,7 @@
 'use strict';
 
 // functions
-import findAction from './functions/find.action';
+import findCommandAction from './functions/find.command.action';
 import runActionAsCommand from './functions/run.action.as.command';
 import getOptionAndDefaultValue from './functions/get.option.and.default.value';
 
@@ -18,7 +18,7 @@ import Action from './abstracts/action';
 
 export {
 	// functions
-	findAction,
+	findCommandAction,
 	runActionAsCommand,
 	getOptionAndDefaultValue,
 

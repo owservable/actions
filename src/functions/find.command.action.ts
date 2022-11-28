@@ -5,12 +5,13 @@ import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 
 import ActionAsCommandInterface from '../interfaces/action.as.command.interface';
 
-export const findAction = (root: string, cliCommand: string): ActionAsCommandInterface => {
+export const findCommandAction = (root: string, cliCommand: string): ActionAsCommandInterface => {
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, 'actions');
 
 	let action: ActionAsCommandInterface;
 
 	each(actionPaths, (actionPath: string) => {
+		console.log('   - [@owservable/actions] Initializing command action', actionPath);
 		// tslint:disable-next-line:callable-types
 		const ActionClass: {new (): ActionAsCommandInterface} = require(actionPath).default;
 		const actionInstance = new ActionClass();
@@ -24,4 +25,4 @@ export const findAction = (root: string, cliCommand: string): ActionAsCommandInt
 
 	return action;
 };
-export default findAction;
+export default findCommandAction;
