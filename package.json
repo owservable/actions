@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "list subfolders by name",
 	"engines": {
 		"node": ">=16"
@@ -30,21 +30,21 @@
 		"test_qube": "nyc --reporter=lcov mocha -R @danmasta/mocha-sonar -r ts-node/register test/**/*.spec.ts",
 		"up": "pnpm up -i",
 		"latest": "pnpm up -i -L",
-		"l": "pnpm latest",
+		"l": "pnpm i & pnpm latest",
 		"srctree": "dir src /s /b > srctree.txt",
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.0.4",
-		"@types/lodash": "^4.14.182",
-		"@types/node": "^18.0.6",
+		"@owservable/folders": "^0.0.5",
+		"@types/lodash": "^4.14.191",
+		"@types/node": "^18.11.10",
 		"commander": "^9.4.1",
 		"lodash": "^4.17.20"
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.0.1",
 		"@types/chai": "^4.3.1",
-		"@types/mocha": "^10.0.0",
+		"@types/mocha": "^10.0.1",
 		"chai": "^4.3.6",
 		"coveralls": "^3.0.9",
 		"mocha": "^10.0.0",
