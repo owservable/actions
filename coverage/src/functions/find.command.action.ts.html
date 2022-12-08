@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/abstracts/action.ts</title>
+    <title>Code coverage report for src/functions/find.command.action.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/abstracts</a> action.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/functions</a> find.command.action.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
@@ -82,44 +82,71 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export default abstract class A</span></span>ction {
-	protected <span class="cstat-no" title="statement not covered" >_signature = '';</span>
-	protected <span class="cstat-no" title="statement not covered" >_description = '';</span>
-	protected <span class="cstat-no" title="statement not covered" >_schedule = '';</span>
+<span class="cstat-no" title="statement not covered" >import {each, first} from 'lodash';</span>
+<span class="cstat-no" title="statement not covered" >import {listSubfoldersFilesByFolderName} from '@owservable/folders';</span>
 &nbsp;
-	public <span class="fstat-no" title="function not covered" >signature(</span>): string {
-<span class="cstat-no" title="statement not covered" >		return this._signature;</span>
-	}
+import ActionAsCommandInterface from '../interfaces/action.as.command.interface';
 &nbsp;
-	public <span class="fstat-no" title="function not covered" >description(</span>): string {
-<span class="cstat-no" title="statement not covered" >		return this._description;</span>
-	}
+export const <span class="cstat-no" title="statement not covered" >findCommandAction = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>r</span>oot: string, cliCommand: string): ActionAsCommandInterface =&gt; {</span>
+	const actionPaths: string[] = <span class="cstat-no" title="statement not covered" >listSubfoldersFilesByFolderName(root, 'actions');</span>
 &nbsp;
-	public <span class="fstat-no" title="function not covered" >schedule(</span>): string {
-<span class="cstat-no" title="statement not covered" >		return this._schedule;</span>
-	}
-}
+	let action: ActionAsCommandInterface;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	each(actionPaths, <span class="fstat-no" title="function not covered" >(a</span>ctionPath: string) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >		console.log('   - [@owservable/actions] Initializing command action', actionPath);</span>
+		// tslint:disable-next-line:callable-types
+		const ActionClass: {new (): ActionAsCommandInterface} = <span class="cstat-no" title="statement not covered" >require(actionPath).default;</span>
+		const actionInstance = <span class="cstat-no" title="statement not covered" >new ActionClass();</span>
+		const actionCommand = <span class="cstat-no" title="statement not covered" >first(actionInstance.signature().split(' '));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (cliCommand === actionCommand) {</span>
+<span class="cstat-no" title="statement not covered" >			action = actionInstance;</span>
+<span class="cstat-no" title="statement not covered" >			return false;</span>
+		}
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return action;</span>
+};
+<span class="cstat-no" title="statement not covered" >export default findCommandAction;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
