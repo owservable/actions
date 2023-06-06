@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@owservable/folders':
-    specifier: ^0.1.1
-    version: 0.1.1
+    specifier: ^0.1.2
+    version: 0.1.2
   '@types/lodash':
     specifier: ^4.14.195
     version: 4.14.195
@@ -355,8 +355,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@owservable/folders@0.1.1:
-    resolution: {integrity: sha512-zg0w5ZwtOkCxE3b/clCQIgRGRT8ErLQFBX2lQ7BxR93brs9RXr/A0Z8mnDYFfAqDAc7MocIGn+sj4kkU8krvTw==}
+  /@owservable/folders@0.1.2:
+    resolution: {integrity: sha512-7EAfqRhCKSoYJQRK+FAdUuqJCJPEDq5N9ewU3x5dIxq8OxG1cYJNHaOwHCSWoN7KB1r9A+tM9qQ9aVr4+FUbIg==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:

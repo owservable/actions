@@ -11,7 +11,7 @@ export const findCommandAction = (root: string, cliCommand: string): ActionAsCom
 	let action: ActionAsCommandInterface;
 
 	each(actionPaths, (actionPath: string) => {
-		console.log('   - [@owservable/actions] Initializing command action', actionPath);
+		console.log('[@owservable/actions] -> Initializing command action', actionPath);
 		// tslint:disable-next-line:callable-types
 		const ActionClass: {new (): ActionAsCommandInterface} = require(actionPath).default;
 		const actionInstance = new ActionClass();
