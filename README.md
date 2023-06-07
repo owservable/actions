@@ -2,6 +2,14 @@
 
 # @owservable/actions
 
+## TypeDoc Documentation
+
+See the <a href="https://owservable.github.io/actions/docs/" target="_blank">TypeDoc documentation</a>.
+
+## Test Coverage
+
+See the <a href="https://owservable.github.io/actions/coverage/" target="_blank">Test coverage</a>.
+
 - functions
 	- findAction
 	- runActionAsCommand
