@@ -12,13 +12,13 @@
         </testCase>
     </file>
     <file path="test\functions\get.option.and.default.value.spec.ts">
-        <testCase name="get.option.and.default.value tests findCommandAction exists" duration="0"/>
+        <testCase name="get.option.and.default.value tests getOptionAndDefaultValue exists" duration="0"/>
         <testCase name="get.option.and.default.value tests should be implemented" duration="0">
             <skipped message="skipped">skipped</skipped>
         </testCase>
     </file>
     <file path="test\functions\run.action.as.command.spec.ts">
-        <testCase name="run.action.as.command tests findCommandAction exists" duration="1"/>
+        <testCase name="run.action.as.command tests runActionAsCommand exists" duration="0"/>
         <testCase name="run.action.as.command tests should be implemented" duration="0">
             <skipped message="skipped">skipped</skipped>
         </testCase>
@@ -59,6 +59,6 @@
         <testCase name="owservable.actions tests OwservableActions::runActionAsCommand:" duration="0"/>
         <testCase name="owservable.actions tests OwservableActions::getOptionAndDefaultValue:" duration="0"/>
         <testCase name="owservable.actions tests OwservableActions::Action:" duration="0"/>
-        <testCase name="owservable.actions tests OwservableActions::default" duration="1"/>
+        <testCase name="owservable.actions tests OwservableActions::default" duration="0"/>
     </file>
 </testExecutions>
