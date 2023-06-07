@@ -1,3 +1,12 @@
 'use strict';
 
-describe('action.as.controller.interface tests', () => it('should be implemented'));
+import {expect} from 'chai';
+
+import * as ActionAsControllerInterface from '../../src/interfaces/action.as.controller.interface';
+
+describe('action.as.controller.interface tests', () => {
+	it('ActionAsControllerInterface exists', () => {
+		expect(ActionAsControllerInterface).to.exist;
+		expect(ActionAsControllerInterface).to.be.an('object');
+	});
+});
