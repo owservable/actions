@@ -1,3 +1,14 @@
 'use strict';
 
-describe('run.action.as.command tests', () => it('should be implemented'));
+import {expect} from 'chai';
+
+import runActionAsCommand from '../../src/functions/run.action.as.command';
+
+describe('run.action.as.command tests', () => {
+	it('findCommandAction exists', () => {
+		expect(runActionAsCommand).to.exist;
+		expect(runActionAsCommand).to.be.a('function');
+	});
+
+	it('should be implemented');
+});

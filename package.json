@@ -17,7 +17,7 @@
 		"url": "git+https://github.com/owservable/actions.git"
 	},
 	"scripts": {
-		"all": "pnpm i & tsc & pnpm clean & pnpm build & pnpm test & pnpm test_qube & pnpm docs",
+		"all": "pnpm i & tsc & pnpm clean & pnpm build & pnpm test & pnpm test_qube & pnpm docs & skeletest & strictr",
 		"build": "del /S /Q lib\\* && tsc",
 		"build:watch": "tsc --watch",
 		"lint": "tslint -p tsconfig.json",
@@ -50,8 +50,10 @@
 		"mocha": "^10.2.0",
 		"nyc": "^15.1.0",
 		"prettier": "^2.8.8",
+		"skeletest": "^0.4.4",
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.21",
+		"strictr": "^0.2.3",
 		"ts-node": "^10.9.1",
 		"tslint": "^6.1.3",
 		"tslint-config-prettier": "^1.18.0",
