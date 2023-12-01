@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.1.81",
+	"version": "0.1.82",
 	"description": "list subfolders by name",
 	"engines": {
 		"node": ">=16"
@@ -35,16 +35,16 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.1.81",
-		"@types/lodash": "^4.14.201",
-		"@types/node": "^20.9.0",
+		"@owservable/folders": "^0.1.82",
+		"@types/lodash": "^4.14.202",
+		"@types/node": "^20.10.1",
 		"commander": "^11.1.0",
 		"lodash": "^4.17.20"
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.0.1",
-		"@types/chai": "^4.3.10",
-		"@types/mocha": "^10.0.4",
+		"@types/chai": "^4.3.11",
+		"@types/mocha": "^10.0.6",
 		"chai": "^4.3.10",
 		"coveralls": "^3.0.9",
 		"mocha": "^10.2.0",
@@ -59,7 +59,7 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.7",
 		"tslint-no-unused-expression-chai": "^0.1.4",
-		"typedoc": "^0.25.3",
-		"typescript": "^5.2.2"
+		"typedoc": "^0.25.4",
+		"typescript": "^5.3.2"
 	}
 }
