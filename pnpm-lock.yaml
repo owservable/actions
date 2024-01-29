@@ -15,8 +15,8 @@ overrides:
 
 dependencies:
   '@owservable/folders':
-    specifier: ^0.1.86
-    version: 0.1.86
+    specifier: ^0.1.87
+    version: 0.1.87
   '@types/lodash':
     specifier: ^4.14.202
     version: 4.14.202
@@ -381,8 +381,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@owservable/folders@0.1.86:
-    resolution: {integrity: sha512-b8XO40/0RRAM5Q+O7cTn2oBeZnwaV/PIxI2Ds8d5vhuIDotGqKjLkJum4i/fNDwAGO3CgaO/grssYDUXA0a3ww==}
+  /@owservable/folders@0.1.87:
+    resolution: {integrity: sha512-iLsnUcG3AZPWOnJEtWIobyCU3L2woYSAzEMs496ajLOAdPaXZA8pQsZWsbCAx7e4ZxYqVBkVmSj78dzgrmfRYQ==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
