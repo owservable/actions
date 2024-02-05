@@ -45,7 +45,7 @@
 		"@danmasta/mocha-sonar": "^1.1.0",
 		"@types/chai": "^4.3.11",
 		"@types/mocha": "^10.0.6",
-		"chai": "^4.3.10",
+		"chai": "4.4.0",
 		"coveralls": "^3.0.9",
 		"mocha": "^10.2.0",
 		"nyc": "^15.1.0",
