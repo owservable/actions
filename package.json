@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.1.93",
+	"version": "0.1.94",
 	"description": "list subfolders by name",
 	"engines": {
 		"node": ">=16"
@@ -23,6 +23,7 @@
 		"lint": "tslint -p tsconfig.json",
 		"clean": "tslint --config tslint-imports.json --fix --project .",
 		"format": "prettier --write \"src/**/*.ts\"",
+		"sync": "git pull & git fetch origin & git merge origin/main & pnpm i & git branch",
 		"docs": "typedoc --readme none --out docs src/owservable.actions.ts",
 		"test": "nyc --all --reporter=lcov --reporter=html mocha -r ts-node/register test/**/*.spec.ts --code-coverage",
 		"coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
@@ -35,9 +36,9 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.1.93",
-		"@types/lodash": "^4.17.4",
-		"@types/node": "^20.12.13",
+		"@owservable/folders": "^0.1.94",
+		"@types/lodash": "^4.17.5",
+		"@types/node": "^20.14.2",
 		"commander": "^12.1.0",
 		"lodash": "^4.17.20"
 	},
@@ -48,8 +49,8 @@
 		"chai": "4.4.0",
 		"coveralls": "^3.0.9",
 		"mocha": "^10.4.0",
-		"nyc": "^15.1.0",
-		"prettier": "^3.2.5",
+		"nyc": "^17.0.0",
+		"prettier": "^3.3.2",
 		"skeletest": "^0.5.2",
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.21",
