@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.1.95",
+	"version": "0.1.96",
 	"description": "list subfolders by name",
 	"engines": {
 		"node": ">=16"
@@ -36,9 +36,9 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.1.95",
-		"@types/lodash": "^4.17.6",
-		"@types/node": "^20.14.10",
+		"@owservable/folders": "^0.1.96",
+		"@types/lodash": "^4.17.7",
+		"@types/node": "^20.14.11",
 		"commander": "^12.1.0",
 		"lodash": "^4.17.20"
 	},
@@ -48,9 +48,9 @@
 		"@types/mocha": "^10.0.7",
 		"chai": "4.4.0",
 		"coveralls": "^3.0.9",
-		"mocha": "^10.6.0",
+		"mocha": "^10.7.0",
 		"nyc": "^17.0.0",
-		"prettier": "^3.3.2",
+		"prettier": "^3.3.3",
 		"skeletest": "^0.5.2",
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.21",
@@ -60,7 +60,7 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.7",
 		"tslint-no-unused-expression-chai": "^0.1.4",
-		"typedoc": "^0.26.3",
+		"typedoc": "^0.26.5",
 		"typescript": "^5.5.3"
 	},
 	"pnpm": {
