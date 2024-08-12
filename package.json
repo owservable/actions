@@ -1,9 +1,9 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.1.97",
+	"version": "0.1.98",
 	"description": "list subfolders by name",
 	"engines": {
-		"node": ">=16"
+		"node": ">=20"
 	},
 	"main": "./lib/owservable.actions.js",
 	"types": "./lib/owservable.actions.d.ts",
@@ -36,7 +36,7 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.1.97",
+		"@owservable/folders": "^0.1.98",
 		"@types/lodash": "^4.17.7",
 		"@types/node": "^20.14.11",
 		"commander": "^12.1.0",
@@ -44,11 +44,11 @@
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.1.0",
-		"@types/chai": "^4.3.16",
+		"@types/chai": "^4.3.17",
 		"@types/mocha": "^10.0.7",
 		"chai": "4.4.0",
 		"coveralls": "^3.0.9",
-		"mocha": "^10.7.0",
+		"mocha": "^10.7.3",
 		"nyc": "^17.0.0",
 		"prettier": "^3.3.3",
 		"skeletest": "^0.5.2",
