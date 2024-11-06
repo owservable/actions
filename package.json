@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.1.100",
+	"version": "0.1.101",
 	"description": "list subfolders by name",
 	"engines": {
 		"node": ">=20"
@@ -36,9 +36,9 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.1.99",
-		"@types/lodash": "^4.17.12",
-		"@types/node": "^20.14.11",
+		"@owservable/folders": "^0.1.101",
+		"@types/lodash": "^4.17.13",
+		"@types/node": "^22.9.0",
 		"commander": "^12.1.0",
 		"lodash": "^4.17.20"
 	},
@@ -48,19 +48,19 @@
 		"@types/mocha": "^10.0.8",
 		"chai": "4.4.0",
 		"coveralls": "^3.0.9",
-		"mocha": "^10.7.3",
+		"mocha": "^10.8.2",
 		"nyc": "^17.1.0",
 		"prettier": "^3.3.3",
-		"skeletest": "^0.5.2",
+		"skeletest": "^0.5.3",
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.21",
-		"strictr": "^0.2.6",
+		"strictr": "^0.2.7",
 		"ts-node": "^10.9.2",
 		"tslint": "^6.1.3",
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.7",
 		"tslint-no-unused-expression-chai": "^0.1.4",
-		"typedoc": "^0.26.10",
+		"typedoc": "^0.26.11",
 		"typescript": "^5.6.3"
 	},
 	"pnpm": {
@@ -70,6 +70,7 @@
 		"updateConfig": {
 			"ignoreDependencies": [
 				"chai",
+				"@types/chai",
 				"sonarjs",
 				"tslint"
 			]
