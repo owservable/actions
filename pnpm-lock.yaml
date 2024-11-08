@@ -18,8 +18,8 @@ importers:
   .:
     dependencies:
       '@owservable/folders':
-        specifier: ^0.1.101
-        version: 0.1.101
+        specifier: ^0.2.0
+        version: 0.2.0
       '@types/lodash':
         specifier: ^4.17.13
         version: 4.17.13
@@ -205,8 +205,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@owservable/folders@0.1.101':
-    resolution: {integrity: sha512-KTi9+OlqBaWWNKlNJZ7IeiIxlvmjz1jGth7A0bLn5/LCCWBOxmuQgBO3tGtYhw+TI6YSnmtkq9jiQME8EUv/hg==}
+  '@owservable/folders@0.2.0':
+    resolution: {integrity: sha512-AuSY9YI/DH0OpesdXkkiQwOIye7NO6891HZdiDB7QU6WVGOiza+gH88KFg8U3/6lHmM3/nCBNeKN05uiuJAhmw==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -261,9 +261,6 @@ packages:
 
   '@types/mocha@10.0.9':
     resolution: {integrity: sha512-sicdRoWtYevwxjOHNMPTl3vSfJM6oyW8o1wXeI7uww6b6xHg8eBznQDNSGBCDJmsE8UMxP05JgZRtsKbTqt//Q==}
-
-  '@types/node@20.17.6':
-    resolution: {integrity: sha512-VEI7OdvK2wP7XHnsuXbAJnEpEkF6NjSN45QJlL4VGqZSXsnicpesdTWsg9RISeSdYd3yeRj/y3k5KGjUXYnFwQ==}
 
   '@types/node@22.9.0':
     resolution: {integrity: sha512-vuyHg81vvWA1Z1ELfvLko2c8f34gyA0zaic0+Rllc5lbCnbSyuvb2Oxpm6TAUAC/2xZN3QGqxBNggD1nNR2AfQ==}
@@ -1971,10 +1968,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@owservable/folders@0.1.101':
+  '@owservable/folders@0.2.0':
     dependencies:
       '@types/lodash': 4.17.13
-      '@types/node': 20.17.6
+      '@types/node': 22.9.0
       lodash: 4.17.21
 
   '@phenomnomnominal/tsquery@4.2.0(typescript@5.6.3)':
@@ -2034,10 +2031,6 @@ snapshots:
       '@types/unist': 3.0.3
 
   '@types/mocha@10.0.9': {}
-
-  '@types/node@20.17.6':
-    dependencies:
-      undici-types: 6.19.8
 
   '@types/node@22.9.0':
     dependencies:
