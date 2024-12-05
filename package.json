@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "list subfolders by name",
 	"engines": {
 		"node": ">=20"
@@ -36,7 +36,7 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.2.2",
+		"@owservable/folders": "^0.2.3",
 		"@types/lodash": "^4.17.13",
 		"@types/node": "^22.10.1",
 		"commander": "^12.1.0",

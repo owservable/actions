@@ -13,7 +13,7 @@
     </file>
     <file path="test\functions\get.option.and.default.value.spec.ts">
         <testCase name="get.option.and.default.value tests getOptionAndDefaultValue exists" duration="0"/>
-        <testCase name="get.option.and.default.value tests getOptionAndDefaultValue works" duration="1"/>
+        <testCase name="get.option.and.default.value tests getOptionAndDefaultValue works" duration="0"/>
         <testCase name="get.option.and.default.value tests getOptionAndDefaultValue works with default value" duration="0"/>
     </file>
     <file path="test\functions\run.action.as.command.spec.ts">

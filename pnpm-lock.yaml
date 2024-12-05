@@ -19,7 +19,7 @@ importers:
     dependencies:
       '@owservable/folders':
         specifier: ^0.2.2
-        version: 0.2.2
+        version: 0.2.3
       '@types/lodash':
         specifier: ^4.17.13
         version: 4.17.13
@@ -212,8 +212,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@owservable/folders@0.2.2':
-    resolution: {integrity: sha512-BXo4Owb2+PIK85eZdVzdFp3pGvGjQFQo2b30fxFSvkjGWj5SOgxY5T2xrqYRG0Bys3xad8FFuVh4iVEEB/ax2w==}
+  '@owservable/folders@0.2.3':
+    resolution: {integrity: sha512-+UkaReQFgB7fex2VEJlZ6ElVio8XaqyccFD2wHiWwuO9W6rzC2A6gHEcWG/dhkMG4UWjd6FA00wM2+PvdLBwFw==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -1943,7 +1943,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@owservable/folders@0.2.2':
+  '@owservable/folders@0.2.3':
     dependencies:
       '@types/lodash': 4.17.13
       '@types/node': 22.10.1
