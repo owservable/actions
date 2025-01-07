@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.2.4",
+	"version": "0.2.41",
 	"description": "list subfolders by name",
 	"engines": {
 		"node": ">=20"
