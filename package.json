@@ -1,7 +1,7 @@
 {
 	"name": "@owservable/actions",
-	"version": "0.2.41",
-	"description": "list subfolders by name",
+	"version": "0.2.42",
+	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
 	},
@@ -36,10 +36,10 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^0.2.4",
+		"@owservable/folders": "^0.2.42",
 		"@types/lodash": "^4.17.14",
-		"@types/node": "^22.10.5",
-		"commander": "^12.1.0",
+		"@types/node": "^22.10.7",
+		"commander": "^13.1.0",
 		"lodash": "^4.17.20"
 	},
 	"devDependencies": {
@@ -61,7 +61,7 @@
 		"tslint-etc": "^1.13.7",
 		"tslint-no-unused-expression-chai": "^0.1.4",
 		"typedoc": "^0.27.6",
-		"typescript": "^5.7.2"
+		"typescript": "^5.7.3"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
