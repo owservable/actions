@@ -18,14 +18,14 @@ importers:
   .:
     dependencies:
       '@owservable/folders':
-        specifier: ^1.3.6
-        version: 1.3.6
+        specifier: ^1.3.7
+        version: 1.3.7
       '@types/lodash':
         specifier: ^4.17.15
         version: 4.17.15
       '@types/node':
-        specifier: ^22.13.2
-        version: 22.13.2
+        specifier: ^22.13.4
+        version: 22.13.4
       commander:
         specifier: ^13.1.0
         version: 13.1.0
@@ -71,7 +71,7 @@ importers:
         version: 0.2.7
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.13.2)(typescript@5.7.3)
+        version: 10.9.2(@types/node@22.13.4)(typescript@5.7.3)
       tslint:
         specifier: ^6.1.3
         version: 6.1.3(typescript@5.7.3)
@@ -204,8 +204,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@owservable/folders@1.3.6':
-    resolution: {integrity: sha512-gnq7A8hRXksHO92NkXFYS5XaRKNpF4F2/jaODB6a/IGhps6eYtKGReyoo3Oyt+bqlGe+ek4g6MTxQtwCjEfr9g==}
+  '@owservable/folders@1.3.7':
+    resolution: {integrity: sha512-wWi9RCn8VdpsL6sLJWrmFPbK43HwX+WcjQwsx5Ne5kzj0n54oTDLK7ND5yJk1+PU33BbpmlfdTb/QQmv02WrTg==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -256,8 +256,8 @@ packages:
   '@types/mocha@10.0.10':
     resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
-  '@types/node@22.13.2':
-    resolution: {integrity: sha512-Z+r8y3XL9ZpI2EY52YYygAFmo2/oWfNSj4BCpAXE2McAexDk8VcnBMGC9Djn9gTKt4d2T/hhXqmPzo4hfIXtTg==}
+  '@types/node@22.13.4':
+    resolution: {integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -1910,10 +1910,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@owservable/folders@1.3.6':
+  '@owservable/folders@1.3.7':
     dependencies:
       '@types/lodash': 4.17.15
-      '@types/node': 22.13.2
+      '@types/node': 22.13.4
       lodash: 4.17.21
 
   '@phenomnomnominal/tsquery@4.2.0(typescript@5.7.3)':
@@ -1958,7 +1958,7 @@ snapshots:
 
   '@types/mocha@10.0.10': {}
 
-  '@types/node@22.13.2':
+  '@types/node@22.13.4':
     dependencies:
       undici-types: 6.20.0
 
@@ -3248,14 +3248,14 @@ snapshots:
 
   traverse@0.3.9: {}
 
-  ts-node@10.9.2(@types/node@22.13.2)(typescript@5.7.3):
+  ts-node@10.9.2(@types/node@22.13.4)(typescript@5.7.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.13.2
+      '@types/node': 22.13.4
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
