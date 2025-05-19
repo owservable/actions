@@ -26,7 +26,7 @@
         <testCase name="action.as.command.interface tests ActionAsCommandInterface exists" duration="0"/>
     </file>
     <file path="test\interfaces\action.as.controller.interface.spec.ts">
-        <testCase name="action.as.controller.interface tests ActionAsControllerInterface exists" duration="1"/>
+        <testCase name="action.as.controller.interface tests ActionAsControllerInterface exists" duration="0"/>
     </file>
     <file path="test\interfaces\action.as.cronjob.interface.spec.ts">
         <testCase name="action.as.cronjob.interface tests ActionAsCronjobInterface exists" duration="0"/>
@@ -35,17 +35,17 @@
         <testCase name="action.as.watcher.interface tests ActionAsWatcherInterface exists" duration="0"/>
     </file>
     <file path="test\interfaces\action.as.worker.interface.spec.ts">
-        <testCase name="action.as.worker.interface tests ActionAsWorkerInterface exists" duration="1"/>
+        <testCase name="action.as.worker.interface tests ActionAsWorkerInterface exists" duration="0"/>
     </file>
     <file path="test\interfaces\action.interface.spec.ts">
-        <testCase name="action.interface tests ActionInterface exists" duration="0"/>
+        <testCase name="action.interface tests ActionInterface exists" duration="1"/>
     </file>
     <file path="test\owservable.actions.spec.ts">
         <testCase name="owservable.actions tests OwservableActions" duration="0"/>
         <testCase name="owservable.actions tests OwservableActions::findCommandAction:" duration="0"/>
         <testCase name="owservable.actions tests OwservableActions::runActionAsCommand:" duration="0"/>
         <testCase name="owservable.actions tests OwservableActions::getOptionAndDefaultValue:" duration="0"/>
-        <testCase name="owservable.actions tests OwservableActions::Action:" duration="1"/>
-        <testCase name="owservable.actions tests OwservableActions::default" duration="0"/>
+        <testCase name="owservable.actions tests OwservableActions::Action:" duration="0"/>
+        <testCase name="owservable.actions tests OwservableActions::default" duration="1"/>
     </file>
 </testExecutions>
