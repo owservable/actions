@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "1.5.4",
+	"version": "1.5.5",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
@@ -36,7 +36,7 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^1.5.4",
+		"@owservable/folders": "^1.5.5",
 		"@types/lodash": "^4.17.17",
 		"@types/node": "^22.15.29",
 		"commander": "^14.0.0",
@@ -90,5 +90,5 @@
 		},
 		"neverBuiltDependencies": []
 	},
-	"packageManager": "pnpm@10.11.0"
+	"packageManager": "pnpm@10.11.1"
 }
