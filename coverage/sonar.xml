@@ -6,7 +6,7 @@
         </testCase>
     </file>
     <file path="test\functions\find.command.action.spec.ts">
-        <testCase name="find.command.action tests findCommandAction exists" duration="0"/>
+        <testCase name="find.command.action tests findCommandAction exists" duration="1"/>
         <testCase name="find.command.action tests should be implemented" duration="0">
             <skipped message="skipped">skipped</skipped>
         </testCase>
