@@ -1,37 +1,35 @@
 'use strict';
 
-import {expect} from 'chai';
-
 import * as OwservableActions from '../src/owservable.actions';
 
 describe('owservable.actions tests', () => {
 	it('OwservableActions', () => {
-		expect(OwservableActions).to.exist;
+		expect(OwservableActions).toBeDefined();
 	});
 
 	it('OwservableActions::findCommandAction:', () => {
-		expect(OwservableActions.findCommandAction).to.exist;
-		expect(OwservableActions.findCommandAction).to.be.a('function');
+		expect(OwservableActions.findCommandAction).toBeDefined();
+		expect(typeof OwservableActions.findCommandAction).toBe('function');
 	});
 
 	it('OwservableActions::runActionAsCommand:', () => {
-		expect(OwservableActions.runActionAsCommand).to.exist;
-		expect(OwservableActions.runActionAsCommand).to.be.a('function');
+		expect(OwservableActions.runActionAsCommand).toBeDefined();
+		expect(typeof OwservableActions.runActionAsCommand).toBe('function');
 	});
 
 	it('OwservableActions::getOptionAndDefaultValue:', () => {
-		expect(OwservableActions.getOptionAndDefaultValue).to.exist;
-		expect(OwservableActions.getOptionAndDefaultValue).to.be.a('function');
+		expect(OwservableActions.getOptionAndDefaultValue).toBeDefined();
+		expect(typeof OwservableActions.getOptionAndDefaultValue).toBe('function');
 	});
 
 	it('OwservableActions::Action:', () => {
-		expect(OwservableActions.Action).to.exist;
-		expect(OwservableActions.Action).to.be.a('function');
+		expect(OwservableActions.Action).toBeDefined();
+		expect(typeof OwservableActions.Action).toBe('function');
 	});
 
 	it('OwservableActions::default', () => {
-		expect(OwservableActions.default).to.exist;
-		expect(OwservableActions.default).to.be.empty;
-		expect(OwservableActions.default).to.deep.equal({});
+		expect(OwservableActions.default).toBeDefined();
+		expect(Object.keys(OwservableActions.default)).toHaveLength(0);
+		expect(OwservableActions.default).toEqual({});
 	});
 });

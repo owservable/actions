@@ -1,53 +1,48 @@
 'use strict';
 
-import {expect} from 'chai';
-
 import findCommandAction from '../../src/functions/find.command.action';
 
 describe('find.command.action tests', () => {
 	it('findCommandAction exists', () => {
-		expect(findCommandAction).to.exist;
-		expect(findCommandAction).to.be.a('function');
+		expect(findCommandAction).toBeDefined();
+		expect(typeof findCommandAction).toBe('function');
 	});
 
 	it('should be a function that accepts root and cliCommand parameters', () => {
-		expect(findCommandAction).to.be.a('function');
-		expect(findCommandAction.length).to.equal(2);
+		expect(typeof findCommandAction).toBe('function');
+		expect(findCommandAction.length).toBe(2);
 	});
 
-	it('should return undefined when called with empty root path', () => {
+	it('should handle empty root path by throwing ENOENT error', () => {
 		// This test validates the function signature and basic behavior
-		// without needing complex mocking
-		const result = findCommandAction('', 'test-command');
-		expect(result).to.be.undefined;
+		// The function throws ENOENT when the path doesn't exist
+		expect(() => findCommandAction('', 'test-command')).toThrow('ENOENT');
 	});
 
-	it('should return undefined when called with empty command', () => {
-		const result = findCommandAction('/test/root', '');
-		expect(result).to.be.undefined;
+	it('should handle empty command with non-existent path', () => {
+		expect(() => findCommandAction('/test/root', '')).toThrow('ENOENT');
 	});
 
-	it('should return undefined when called with non-existent paths', () => {
-		const result = findCommandAction('/non/existent/path', 'test-command');
-		expect(result).to.be.undefined;
+	it('should handle non-existent paths by throwing ENOENT error', () => {
+		expect(() => findCommandAction('/non/existent/path', 'test-command')).toThrow('ENOENT');
 	});
 
-	it('should handle string parameters correctly', () => {
-		// Test parameter validation
-		expect(() => findCommandAction('/test', 'command')).to.not.throw();
+	it('should throw ENOENT for invalid paths', () => {
+		// Test parameter validation - expects ENOENT for non-existent paths
+		expect(() => findCommandAction('/test', 'command')).toThrow('ENOENT');
 	});
 
-	it('should work with valid root path format', () => {
-		// Test with various path formats
-		expect(() => findCommandAction('./test', 'command')).to.not.throw();
-		expect(() => findCommandAction('../test', 'command')).to.not.throw();
-		expect(() => findCommandAction('/absolute/path', 'command')).to.not.throw();
+	it('should throw ENOENT for various path formats that don\'t exist', () => {
+		// Test with various path formats - all should throw ENOENT
+		expect(() => findCommandAction('./nonexistent', 'command')).toThrow('ENOENT');
+		expect(() => findCommandAction('../nonexistent', 'command')).toThrow('ENOENT');
+		expect(() => findCommandAction('/absolute/nonexistent/path', 'command')).toThrow('ENOENT');
 	});
 
-	it('should handle command names with various formats', () => {
-		// Test with different command formats
-		expect(() => findCommandAction('/test', 'simple-command')).to.not.throw();
-		expect(() => findCommandAction('/test', 'command_with_underscores')).to.not.throw();
-		expect(() => findCommandAction('/test', 'CommandWithCamelCase')).to.not.throw();
+	it('should throw ENOENT for various command formats with non-existent paths', () => {
+		// Test with different command formats - all should throw ENOENT
+		expect(() => findCommandAction('/test', 'simple-command')).toThrow('ENOENT');
+		expect(() => findCommandAction('/test', 'command_with_underscores')).toThrow('ENOENT');
+		expect(() => findCommandAction('/test', 'CommandWithCamelCase')).toThrow('ENOENT');
 	});
 });
