@@ -24,14 +24,14 @@ importers:
   .:
     dependencies:
       '@owservable/folders':
-        specifier: ^1.6.2
-        version: 1.6.2
+        specifier: ^1.6.3
+        version: 1.6.3
       '@types/lodash':
-        specifier: ^4.17.19
-        version: 4.17.19
+        specifier: ^4.17.20
+        version: 4.17.20
       '@types/node':
-        specifier: ^24.0.4
-        version: 24.0.4
+        specifier: ^24.0.12
+        version: 24.0.12
       commander:
         specifier: ^14.0.0
         version: 14.0.0
@@ -64,8 +64,8 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2
       skeletest:
-        specifier: ^0.5.6
-        version: 0.5.6
+        specifier: ^0.6.0
+        version: 0.6.0
       sonarjs:
         specifier: ^1.0.0
         version: 1.0.0
@@ -73,11 +73,11 @@ importers:
         specifier: ^0.5.21
         version: 0.5.21
       strictr:
-        specifier: ^0.2.8
-        version: 0.2.8
+        specifier: ^0.3.0
+        version: 0.3.0
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@24.0.4)(typescript@5.8.3)
+        version: 10.9.2(@types/node@24.0.12)(typescript@5.8.3)
       tslint:
         specifier: ^6.1.3
         version: 6.1.3(typescript@5.8.3)
@@ -91,8 +91,8 @@ importers:
         specifier: ^0.1.4
         version: 0.1.4(tslint@6.1.3(typescript@5.8.3))(typescript@5.8.3)
       typedoc:
-        specifier: ^0.28.6
-        version: 0.28.6(typescript@5.8.3)
+        specifier: ^0.28.7
+        version: 0.28.7(typescript@5.8.3)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -210,8 +210,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@owservable/folders@1.6.2':
-    resolution: {integrity: sha512-cuMrx2XBCqmR0VN7iZUkJMeS4idB+7hOMJ0C6KtaG3rBku9YmqSNuW8wSalxXHckrVqjsmyoyDmQzpKrj1/xBg==}
+  '@owservable/folders@1.6.3':
+    resolution: {integrity: sha512-TPdM67be+ELXljWnExH42h4yoF4ScQsirOI+HEeT5YkU6SL4ktjhf9wJe+/9GrohbEUf3/zCg6454mIBTAbKog==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -262,14 +262,14 @@ packages:
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
-  '@types/lodash@4.17.19':
-    resolution: {integrity: sha512-NYqRyg/hIQrYPT9lbOeYc3kIRabJDn/k4qQHIXUpx88CBDww2fD15Sg5kbXlW86zm2XEW4g0QxkTI3/Kfkc7xQ==}
+  '@types/lodash@4.17.20':
+    resolution: {integrity: sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==}
 
   '@types/mocha@10.0.10':
     resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
-  '@types/node@24.0.4':
-    resolution: {integrity: sha512-ulyqAkrhnuNq9pB76DRBTkcS6YsmDALy6Ua63V8OhrOBgbcYt6IOdzpw5P1+dyRIyMerzLkeYWBeOXPpA9GMAA==}
+  '@types/node@24.0.12':
+    resolution: {integrity: sha512-LtOrbvDf5ndC9Xi+4QZjVL0woFymF/xSTKZKPgrrl7H7XoeDvnD+E2IclKVDyaK9UM756W/3BXqSU+JEHopA9g==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -537,10 +537,6 @@ packages:
   combined-stream@1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
-
-  commander@13.1.0:
-    resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
-    engines: {node: '>=18'}
 
   commander@14.0.0:
     resolution: {integrity: sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==}
@@ -1383,8 +1379,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  skeletest@0.5.6:
-    resolution: {integrity: sha512-SOzqGCV8B7VSCUzrqHyIqu6k2zjr0bgbTTOObQ3f4YDkZB+X9zfMKJ6zRZ/Ip9WGpNJWogWFIEY+AtTH2v6+Og==}
+  skeletest@0.6.0:
+    resolution: {integrity: sha512-t23cbO/fd9BVPNdIY+xc3WKB9YHIMdwBblDcfTUd0+EEvgvdsJZEtKxHTJ5PcLfZeFgyiZ1qIGRXyepMPLf7cA==}
     engines: {node: '>=20.12.1'}
     hasBin: true
 
@@ -1415,8 +1411,8 @@ packages:
   streamx@2.22.0:
     resolution: {integrity: sha512-sLh1evHOzBy/iWRiR6d1zRcLao4gGZr3C1kzNz4fopCOKJb6xD9ub8Mpi9Mr1R6id5o43S+d93fI48UC5uM9aw==}
 
-  strictr@0.2.8:
-    resolution: {integrity: sha512-/JVTDv84alTplrzCOjDxaiR+pf9Ky/xoEpWQY7Bxw97dU/yq6P/yljD9VD6xPO/DYoEojMrY8koqWaupw3WknA==}
+  strictr@0.3.0:
+    resolution: {integrity: sha512-9UMGVcgjL1bSR11IbdWkOavDCNuziJkEV+peP++a75WVzf7vBHebt1hv21vBNrlxMAZGLpbxwL7CNxKWG3lhyg==}
     engines: {node: '>=20.12.1'}
     hasBin: true
 
@@ -1598,8 +1594,8 @@ packages:
   typedarray-to-buffer@3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
 
-  typedoc@0.28.6:
-    resolution: {integrity: sha512-2VvfK6z3yupcu75qZB00LGICg4qa0lw4yPBrFcnZgqIMwpLjLWopTqNeJ4SSS/s92myvWBECY5zcOSMqpvW3CA==}
+  typedoc@0.28.7:
+    resolution: {integrity: sha512-lpz0Oxl6aidFkmS90VQDQjk/Qf2iw0IUvFqirdONBdj7jPSN9mGXhy66BcGNDxx5ZMyKKiBVAREvPEzT6Uxipw==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
@@ -1906,10 +1902,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@owservable/folders@1.6.2':
+  '@owservable/folders@1.6.3':
     dependencies:
-      '@types/lodash': 4.17.19
-      '@types/node': 24.0.4
+      '@types/lodash': 4.17.20
+      '@types/node': 24.0.12
       lodash: 4.17.21
 
   '@phenomnomnominal/tsquery@4.2.0(typescript@5.8.3)':
@@ -1958,11 +1954,11 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/lodash@4.17.19': {}
+  '@types/lodash@4.17.20': {}
 
   '@types/mocha@10.0.10': {}
 
-  '@types/node@24.0.4':
+  '@types/node@24.0.12':
     dependencies:
       undici-types: 7.8.0
 
@@ -2227,8 +2223,6 @@ snapshots:
   combined-stream@1.0.8:
     dependencies:
       delayed-stream: 1.0.0
-
-  commander@13.1.0: {}
 
   commander@14.0.0: {}
 
@@ -3060,13 +3054,13 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  skeletest@0.5.6:
+  skeletest@0.6.0:
     dependencies:
       '@types/cli-color': 2.0.6
       '@types/cli-table': 0.3.4
       cli-color: 2.0.4
       cli-table: 0.3.11
-      commander: 13.1.0
+      commander: 14.0.0
       lodash: 4.17.21
 
   sonarjs@1.0.0:
@@ -3118,13 +3112,13 @@ snapshots:
     optionalDependencies:
       bare-events: 2.5.4
 
-  strictr@0.2.8:
+  strictr@0.3.0:
     dependencies:
       '@types/cli-color': 2.0.6
       '@types/cli-table': 0.3.4
       cli-color: 2.0.4
       cli-table: 0.3.11
-      commander: 13.1.0
+      commander: 14.0.0
       lodash: 4.17.21
 
   string-width@1.0.2:
@@ -3233,14 +3227,14 @@ snapshots:
 
   traverse@0.3.9: {}
 
-  ts-node@10.9.2(@types/node@24.0.4)(typescript@5.8.3):
+  ts-node@10.9.2(@types/node@24.0.12)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 24.0.4
+      '@types/node': 24.0.12
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -3323,7 +3317,7 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typedoc@0.28.6(typescript@5.8.3):
+  typedoc@0.28.7(typescript@5.8.3):
     dependencies:
       '@gerrit0/mini-shiki': 3.7.0
       lunr: 2.3.9
