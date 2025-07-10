@@ -266,4 +266,190 @@ describe('find.command.action tests', () => {
 		// Clean up
 		fs.rmSync(testRoot, {recursive: true});
 	});
+
+	it('should handle action files with no default export', () => {
+		// Create a test directory structure with action that has no default export
+		const testRoot = path.join(__dirname, '../test-actions-root-no-default');
+		const actionsDir = path.join(testRoot, 'actions');
+		const testActionDir = path.join(actionsDir, 'no-default-action');
+
+		// Clean up any existing test directory
+		if (fs.existsSync(testRoot)) {
+			fs.rmSync(testRoot, {recursive: true});
+		}
+
+		// Create directory structure
+		fs.mkdirSync(testActionDir, {recursive: true});
+
+		// Create an action file with no default export
+		const actionFile = path.join(testActionDir, 'no-default-action.js');
+		fs.writeFileSync(
+			actionFile,
+			`
+			class NoDefaultAction {
+				signature() {
+					return 'no-default-command --option';
+				}
+			}
+			
+			// No default export - module.exports = {};
+			module.exports = {};
+		`
+		);
+
+		// Test that files with no default export are skipped
+		const result = findCommandAction(testRoot, 'no-default-command');
+
+		expect(result).toBeNull(); // Should return null since no valid action found
+
+		// Clean up
+		fs.rmSync(testRoot, {recursive: true});
+	});
+
+	it('should handle action files with undefined default export', () => {
+		// Create a test directory structure with action that has undefined default export
+		const testRoot = path.join(__dirname, '../test-actions-root-undefined-default');
+		const actionsDir = path.join(testRoot, 'actions');
+		const testActionDir = path.join(actionsDir, 'undefined-default-action');
+
+		// Clean up any existing test directory
+		if (fs.existsSync(testRoot)) {
+			fs.rmSync(testRoot, {recursive: true});
+		}
+
+		// Create directory structure
+		fs.mkdirSync(testActionDir, {recursive: true});
+
+		// Create an action file with undefined default export
+		const actionFile = path.join(testActionDir, 'undefined-default-action.js');
+		fs.writeFileSync(
+			actionFile,
+			`
+			class UndefinedDefaultAction {
+				signature() {
+					return 'undefined-default-command --option';
+				}
+			}
+			
+			// Undefined default export
+			module.exports = { default: undefined };
+		`
+		);
+
+		// Test that files with undefined default export are skipped
+		const result = findCommandAction(testRoot, 'undefined-default-command');
+
+		expect(result).toBeNull(); // Should return null since no valid action found
+
+		// Clean up
+		fs.rmSync(testRoot, {recursive: true});
+	});
+
+	it('should handle action with signature that returns undefined', () => {
+		// Create a test directory structure with action that has signature returning undefined
+		const testRoot = path.join(__dirname, '../test-actions-root-undefined-signature');
+		const actionsDir = path.join(testRoot, 'actions');
+		const testActionDir = path.join(actionsDir, 'undefined-signature-action');
+
+		// Clean up any existing test directory
+		if (fs.existsSync(testRoot)) {
+			fs.rmSync(testRoot, {recursive: true});
+		}
+
+		// Create directory structure
+		fs.mkdirSync(testActionDir, {recursive: true});
+
+		// Create an action file with signature that returns undefined
+		const actionFile = path.join(testActionDir, 'undefined-signature-action.js');
+		fs.writeFileSync(
+			actionFile,
+			`
+			class UndefinedSignatureAction {
+				signature() {
+					return undefined;
+				}
+				
+				description() {
+					return 'Action with undefined signature';
+				}
+				
+				async asCommand() {
+					return;
+				}
+			}
+			
+			module.exports = { default: UndefinedSignatureAction };
+		`
+		);
+
+		// Test that actions with undefined signature are handled gracefully
+		const result = findCommandAction(testRoot, 'any-command');
+
+		expect(result).toBeNull(); // Should return null since signature is undefined
+
+		// Clean up
+		fs.rmSync(testRoot, {recursive: true});
+	});
+
+	it('should handle actions that throw during instantiation when not in test environment', () => {
+		// Create a test directory structure with action that throws during constructor
+		const testRoot = path.join(__dirname, '../test-actions-root-constructor-error');
+		const actionsDir = path.join(testRoot, 'actions');
+		const testActionDir = path.join(actionsDir, 'constructor-error-action');
+
+		// Clean up any existing test directory
+		if (fs.existsSync(testRoot)) {
+			fs.rmSync(testRoot, {recursive: true});
+		}
+
+		// Create directory structure
+		fs.mkdirSync(testActionDir, {recursive: true});
+
+		// Create an action file that throws during constructor
+		const actionFile = path.join(testActionDir, 'constructor-error-action.js');
+		fs.writeFileSync(
+			actionFile,
+			`
+			class ConstructorErrorAction {
+				constructor() {
+					throw new Error('Constructor failed');
+				}
+				
+				signature() {
+					return 'constructor-error-command';
+				}
+			}
+			
+			module.exports = { default: ConstructorErrorAction };
+		`
+		);
+
+		// Temporarily change NODE_ENV to test the logging path
+		const originalNodeEnv = process.env.NODE_ENV;
+		process.env.NODE_ENV = 'development';
+
+		// Mock console.warn to capture the log
+		const originalConsoleWarn = console.warn;
+		const mockConsoleWarn = jest.fn();
+		console.warn = mockConsoleWarn;
+
+		try {
+			// Test that constructor errors are handled gracefully and logged
+			const result = findCommandAction(testRoot, 'constructor-error-command');
+
+			expect(result).toBeNull(); // Should return null, not throw
+			expect(mockConsoleWarn).toHaveBeenCalledTimes(1);
+			expect(mockConsoleWarn).toHaveBeenCalledWith(
+				expect.stringContaining('[@owservable/actions] Failed to load action from'),
+				'Constructor failed'
+			);
+		} finally {
+			// Restore original values
+			process.env.NODE_ENV = originalNodeEnv;
+			console.warn = originalConsoleWarn;
+		}
+
+		// Clean up
+		fs.rmSync(testRoot, {recursive: true});
+	});
 });
