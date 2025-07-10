@@ -26,7 +26,7 @@ export const findCommandAction: Function = async (root: string, cliCommand: stri
 			if (cliCommand === actionCommand) return actionInstance;
 		} catch (error) {
 			// Skip malformed or problematic action files, continue searching
-			console.warn(`[@owservable/actions] Failed to process action ${actionPath}:`, error instanceof Error ? error.message : error);
+			console.warn(`[@owservable/actions] Failed to load action from ${actionPath}:`, error instanceof Error ? error.message : error);
 		}
 	}
 
