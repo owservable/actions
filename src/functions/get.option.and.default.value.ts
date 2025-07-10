@@ -2,7 +2,7 @@
 
 export const getOptionAndDefaultValue = (config: string): {option: string; defaultValue: string} => {
 	let defaultValue: string | undefined;
-	let option: string = config.substring(1).substring(-1).slice(0, -1).trim();
+	let option: string = config.slice(1, -1).trim();
 
 	// option has default value
 	if (option.indexOf('=') >= 0) {
