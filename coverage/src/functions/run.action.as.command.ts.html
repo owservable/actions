@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.29% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -100,25 +100,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -129,25 +129,25 @@ import {each, first} from 'lodash';
 import ActionAsCommandInterface from '../interfaces/action.as.command.interface';
 import getOptionAndDefaultValue from '../functions/get.option.and.default.value';
 &nbsp;
-export const runActionAsCommand = <span class="fstat-no" title="function not covered" >async (a</span>ction: ActionAsCommandInterface): Promise&lt;void&gt; =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span>
-	const program: Command = <span class="cstat-no" title="statement not covered" >new Command();</span>
-	const signature: string = <span class="cstat-no" title="statement not covered" >action.signature();</span>
-	const actionCommand: string = <span class="cstat-no" title="statement not covered" >first(signature.split(' '));</span>
+export const runActionAsCommand = async (action: ActionAsCommandInterface): Promise&lt;void&gt; =&gt; {
+	const program: Command = new Command();
+	const signature: string = action.signature();
+	const actionCommand: string = first(signature.split(' '));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	program</span>
+	program
 		.name('pnpm cli') //
 		.command(actionCommand)
 		.description(action.description());
 &nbsp;
-	const options: string[] = <span class="cstat-no" title="statement not covered" >signature.match(/{([^}]*)}/g);</span>
-<span class="cstat-no" title="statement not covered" >	each(options, <span class="fstat-no" title="function not covered" >(c</span>onfig) =&gt; {</span>
-		const {option, defaultValue} = <span class="cstat-no" title="statement not covered" >getOptionAndDefaultValue(config);</span>
-<span class="cstat-no" title="statement not covered" >		program.option(option, '', defaultValue);</span>
+	const options: string[] = signature.match(/{([^}]*)}/g);
+	each(options, (config) =&gt; {
+		const {option, defaultValue} = getOptionAndDefaultValue(config);
+		program.option(option, '', defaultValue);
 	});
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	program.parse(process.argv);</span>
+	program.parse(process.argv);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	return action.asCommand(program.opts());</span>
+	return action.asCommand(program.opts());
 };
 export default runActionAsCommand;
 &nbsp;</pre></td></tr></table></pre>
@@ -157,7 +157,7 @@ export default runActionAsCommand;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-10T11:54:35.947Z
+                at 2025-07-10T12:01:12.202Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
