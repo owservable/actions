@@ -9,4 +9,4 @@ type CommandOptionType = {
 	required?: boolean;
 };
 
-export default CommandOptionType; 
+export default CommandOptionType;

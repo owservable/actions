@@ -5,6 +5,7 @@
 	"testFileExtensionPrefix": "spec",
 	"considerVueFiles": true,
 	"ignoreSrcFiles": [
+		"src/types/"
 	],
 	"ignoreTestFiles": [
 	]

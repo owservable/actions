@@ -9,4 +9,4 @@ type CommandContextType = {
 	verbose?: boolean;
 };
 
-export default CommandContextType; 
+export default CommandContextType;

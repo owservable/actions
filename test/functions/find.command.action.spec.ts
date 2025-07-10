@@ -129,7 +129,7 @@ describe('find.command.action tests', () => {
 		await expect(findCommandAction('/test', 'command')).rejects.toThrow('ENOENT');
 	});
 
-	it('should throw error for various path formats that don\'t exist', async () => {
+	it("should throw error for various path formats that don't exist", async () => {
 		// Test with various path formats - all should throw error
 		await expect(findCommandAction('./nonexistent', 'command')).rejects.toThrow('ENOENT');
 		await expect(findCommandAction('../nonexistent', 'command')).rejects.toThrow('ENOENT');
@@ -195,12 +195,9 @@ describe('find.command.action tests', () => {
 			const result = await findCommandAction(testRoot, 'any-command');
 
 			expect(result).toBeNull(); // Should return null, not throw
-			
+
 			expect(mockConsoleWarn).toHaveBeenCalledTimes(1);
-			expect(mockConsoleWarn).toHaveBeenCalledWith(
-				expect.stringContaining('[@owservable/actions] Failed to load action from'),
-				expect.anything()
-			);
+			expect(mockConsoleWarn).toHaveBeenCalledWith(expect.stringContaining('[@owservable/actions] Failed to load action from'), expect.anything());
 		} finally {
 			// Restore original values
 			process.env.NODE_ENV = originalNodeEnv;
