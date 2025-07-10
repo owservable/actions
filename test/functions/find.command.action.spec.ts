@@ -20,18 +20,20 @@ describe('find.command.action tests', () => {
 		const testRoot = path.join(__dirname, '../test-actions-root');
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'test-action');
-		
+
 		// Clean up any existing test directory
 		if (fs.existsSync(testRoot)) {
-			fs.rmSync(testRoot, { recursive: true });
+			fs.rmSync(testRoot, {recursive: true});
 		}
-		
+
 		// Create directory structure
-		fs.mkdirSync(testActionDir, { recursive: true });
-		
+		fs.mkdirSync(testActionDir, {recursive: true});
+
 		// Create a test action file
 		const actionFile = path.join(testActionDir, 'test-action.js');
-		fs.writeFileSync(actionFile, `
+		fs.writeFileSync(
+			actionFile,
+			`
 			class TestAction {
 				signature() {
 					return 'test-command --option';
@@ -47,17 +49,18 @@ describe('find.command.action tests', () => {
 			}
 			
 			module.exports = { default: TestAction };
-		`);
-		
+		`
+		);
+
 		// Test that the action is found and returned
 		const result = findCommandAction(testRoot, 'test-command');
-		
+
 		expect(result).toBeDefined();
 		expect(result.signature()).toBe('test-command --option');
 		expect(result.description()).toBe('Test action for testing');
-		
+
 		// Clean up
-		fs.rmSync(testRoot, { recursive: true });
+		fs.rmSync(testRoot, {recursive: true});
 	});
 
 	it('should handle empty root path by throwing ENOENT error', () => {
@@ -79,7 +82,7 @@ describe('find.command.action tests', () => {
 		expect(() => findCommandAction('/test', 'command')).toThrow('ENOENT');
 	});
 
-	it('should throw ENOENT for various path formats that don\'t exist', () => {
+	it("should throw ENOENT for various path formats that don't exist", () => {
 		// Test with various path formats - all should throw ENOENT
 		expect(() => findCommandAction('./nonexistent', 'command')).toThrow('ENOENT');
 		expect(() => findCommandAction('../nonexistent', 'command')).toThrow('ENOENT');

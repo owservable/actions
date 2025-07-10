@@ -99,13 +99,13 @@ describe('run.action.as.command tests', () => {
 	it('should validate function interface compatibility', () => {
 		// Test that runActionAsCommand accepts the expected interface
 		const mockAction = new MockAction();
-		
+
 		// Validate the action has required methods
 		expect(typeof mockAction.signature).toBe('function');
 		expect(typeof mockAction.description).toBe('function');
 		expect(typeof mockAction.asCommand).toBe('function');
 		expect(typeof mockAction.handle).toBe('function');
-		
+
 		// Validate method return types
 		expect(typeof mockAction.signature()).toBe('string');
 		expect(typeof mockAction.description()).toBe('string');
