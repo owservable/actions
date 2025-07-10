@@ -14,8 +14,8 @@ export const findCommandAction = (root: string, cliCommand: string): ActionAsCom
 		console.log('[@owservable/actions] -> Initializing command action', actionPath);
 		// tslint:disable-next-line:callable-types
 		const ActionClass: new () => ActionAsCommandInterface = require(actionPath).default;
-		const actionInstance = new ActionClass();
-		const actionCommand = first(actionInstance.signature().split(' '));
+		const actionInstance: ActionAsCommandInterface = new ActionClass();
+		const actionCommand: string | undefined = first(actionInstance.signature().split(' '));
 
 		if (cliCommand === actionCommand) {
 			action = actionInstance;
