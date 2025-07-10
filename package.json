@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "1.6.3",
+	"version": "1.7.0",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
@@ -36,16 +36,16 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^1.6.3",
+		"@owservable/folders": "^1.7.0",
 		"@types/lodash": "^4.17.20",
 		"@types/node": "^24.0.12",
 		"commander": "^14.0.0",
 		"lodash": "^4.17.20"
 	},
 	"devDependencies": {
-		"@types/jest": "^29.5.5",
+		"@types/jest": "^30.0.0",
 		"coveralls": "^3.0.9",
-		"jest": "^29.7.0",
+		"jest": "^30.0.4",
 		"jest-sonar-reporter": "^2.0.0",
 		"prettier": "^3.6.2",
 		"skeletest": "^0.6.0",

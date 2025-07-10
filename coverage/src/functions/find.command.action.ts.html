@@ -25,21 +25,21 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -98,27 +98,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -127,24 +127,24 @@ import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 &nbsp;
 import ActionAsCommandInterface from '../interfaces/action.as.command.interface';
 &nbsp;
-export const findCommandAction = (root: string, cliCommand: string): ActionAsCommandInterface | null =&gt; {
-	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, 'actions');
+export const findCommandAction: Function = async (root: string, cliCommand: string): Promise&lt;ActionAsCommandInterface | null&gt; =&gt; {
+	const actionPaths: string[] = await listSubfoldersFilesByFolderName(root, 'actions');
 &nbsp;
 	for (const actionPath of actionPaths) {
-		try {
-			const ActionClass: new () =&gt; ActionAsCommandInterface = require(actionPath).default;
-			if (!ActionClass) continue;
+		const ActionClass: new () =&gt; ActionAsCommandInterface = require(actionPath).default;
+		if (!ActionClass) continue;
 &nbsp;
-			const actionInstance: ActionAsCommandInterface = new ActionClass();
-			const actionCommand: string | undefined = actionInstance.signature()?.split(' ')[0];
+		const actionInstance: ActionAsCommandInterface = new ActionClass();
 &nbsp;
-			if (cliCommand === actionCommand) return actionInstance;
-		} catch (error) {
-			// Log error but continue searching - could be made configurable
-			if (process.env.NODE_ENV !== 'test') {
-				console.warn(`[@owservable/actions] Failed to load action from ${actionPath}:`, error instanceof Error ? error.message : error);
-			}
-		}
+		// Add signature validation
+		const signature: string | undefined = actionInstance.signature();
+		if (!signature || typeof signature !== 'string') continue;
+&nbsp;
+		// Parse command from signature with validation
+		const signatureParts: string[] = signature.trim().split(/\s+/);
+		const actionCommand: string = signatureParts[0];
+&nbsp;
+		if (cliCommand === actionCommand) return actionInstance;
 	}
 &nbsp;
 	return null; // Explicitly return null when not found
@@ -157,7 +157,7 @@ export default findCommandAction;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-10T14:34:01.871Z
+                at 2025-07-10T17:03:31.314Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

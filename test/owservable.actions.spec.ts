@@ -26,10 +26,4 @@ describe('owservable.actions tests', () => {
 		expect(OwservableActions.Action).toBeDefined();
 		expect(typeof OwservableActions.Action).toBe('function');
 	});
-
-	it('OwservableActions::default', () => {
-		expect(OwservableActions.default).toBeDefined();
-		expect(Object.keys(OwservableActions.default)).toHaveLength(0);
-		expect(OwservableActions.default).toEqual({});
-	});
 });

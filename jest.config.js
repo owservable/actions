@@ -5,6 +5,17 @@ module.exports = {
 
 	// Test file patterns
 	testMatch: ['**/test/**/*.spec.ts'],
+	
+	// Ignore temporary test directories created by tests  
+	testPathIgnorePatterns: [
+		'/node_modules/',
+		'<rootDir>/test/test-actions-root.*'
+	],
+	
+	// Also ignore files that match certain patterns
+	modulePathIgnorePatterns: [
+		'<rootDir>/test/test-actions-root.*'
+	],
 
 	// TypeScript configuration
 	transform: {

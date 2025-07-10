@@ -16,6 +16,11 @@ import ActionAsControllerInterface from './interfaces/action.as.controller.inter
 // abstracts
 import Action from './abstracts/action';
 
+// types
+import CommandSignatureType from './types/command.signature.type';
+import CommandOptionType from './types/command.option.type';
+import CommandContextType from './types/command.context.type';
+
 export {
 	// functions
 	findCommandAction,
@@ -31,8 +36,10 @@ export {
 	ActionAsControllerInterface,
 
 	// abstracts
-	Action
-};
+	Action,
 
-const OwservableActions = {};
-export default OwservableActions;
+	// types
+	CommandSignatureType,
+	CommandOptionType,
+	CommandContextType
+};
