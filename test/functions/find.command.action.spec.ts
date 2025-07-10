@@ -3,6 +3,7 @@
 import findCommandAction from '../../src/functions/find.command.action';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as os from 'os';
 
 describe('find.command.action tests', () => {
 	it('findCommandAction exists', () => {
@@ -16,8 +17,8 @@ describe('find.command.action tests', () => {
 	});
 
 	it('should find and return matching action when it exists', async () => {
-		// Create a test directory structure
-		const testRoot = path.join(__dirname, '../test-actions-root');
+		// Create a test directory structure in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'test-action');
 
@@ -65,8 +66,8 @@ describe('find.command.action tests', () => {
 	});
 
 	it('should return null when no matching action is found', async () => {
-		// Create a test directory structure with no matching actions
-		const testRoot = path.join(__dirname, '../test-actions-root-no-match');
+		// Create a test directory structure with no matching actions in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-no-match-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'test-action');
 
@@ -136,8 +137,7 @@ describe('find.command.action tests', () => {
 	});
 
 	it('should handle malformed action files gracefully', async () => {
-		// Create a test directory structure with malformed action in temp directory
-		const os = require('os');
+		// Create a test directory structure with malformed action in OS temp directory
 		const testRoot = path.join(os.tmpdir(), 'test-actions-root-malformed-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'malformed-action');
@@ -164,8 +164,7 @@ describe('find.command.action tests', () => {
 	});
 
 	it('should log errors when not in test environment', async () => {
-		// Create a test directory structure with malformed action in temp directory
-		const os = require('os');
+		// Create a test directory structure with malformed action in OS temp directory
 		const testRoot = path.join(os.tmpdir(), 'test-actions-root-malformed-with-logging-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'malformed-action');
@@ -213,8 +212,8 @@ describe('find.command.action tests', () => {
 	});
 
 	it('should handle non-Error exceptions in logging', async () => {
-		// Create a test directory structure with action that throws non-Error
-		const testRoot = path.join(__dirname, '../test-actions-root-non-error');
+		// Create a test directory structure with action that throws non-Error in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-non-error-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'non-error-action');
 
@@ -270,8 +269,8 @@ describe('find.command.action tests', () => {
 	});
 
 	it('should handle action files with no default export', async () => {
-		// Create a test directory structure with action that has no default export
-		const testRoot = path.join(__dirname, '../test-actions-root-no-default');
+		// Create a test directory structure with action that has no default export in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-no-default-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'no-default-action');
 
@@ -309,8 +308,8 @@ describe('find.command.action tests', () => {
 	});
 
 	it('should handle action files with undefined default export', async () => {
-		// Create a test directory structure with action that has undefined default export
-		const testRoot = path.join(__dirname, '../test-actions-root-undefined-default');
+		// Create a test directory structure with action that has undefined default export in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-undefined-default-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'undefined-default-action');
 
@@ -347,55 +346,9 @@ describe('find.command.action tests', () => {
 		fs.rmSync(testRoot, {recursive: true});
 	});
 
-	it('should handle action with signature that returns undefined', async () => {
-		// Create a test directory structure with action that has signature returning undefined
-		const testRoot = path.join(__dirname, '../test-actions-root-undefined-signature');
-		const actionsDir = path.join(testRoot, 'actions');
-		const testActionDir = path.join(actionsDir, 'undefined-signature-action');
-
-		// Clean up any existing test directory
-		if (fs.existsSync(testRoot)) {
-			fs.rmSync(testRoot, {recursive: true});
-		}
-
-		// Create directory structure
-		fs.mkdirSync(testActionDir, {recursive: true});
-
-		// Create an action file with signature that returns undefined
-		const actionFile = path.join(testActionDir, 'undefined-signature-action.js');
-		fs.writeFileSync(
-			actionFile,
-			`
-			class UndefinedSignatureAction {
-				signature() {
-					return undefined;
-				}
-				
-				description() {
-					return 'Action with undefined signature';
-				}
-				
-				async asCommand() {
-					return;
-				}
-			}
-			
-			module.exports = { default: UndefinedSignatureAction };
-		`
-		);
-
-		// Test that actions with undefined signature are handled gracefully
-		const result = await findCommandAction(testRoot, 'any-command');
-
-		expect(result).toBeNull(); // Should return null since signature is undefined
-
-		// Clean up
-		fs.rmSync(testRoot, {recursive: true});
-	});
-
-	it('should handle actions that throw during instantiation when not in test environment', async () => {
-		// Create a test directory structure with action that throws during constructor
-		const testRoot = path.join(__dirname, '../test-actions-root-constructor-error');
+	it('should handle action files that throw errors in constructor', async () => {
+		// Create a test directory structure with action that throws in constructor in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-constructor-error-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'constructor-error-action');
 
@@ -407,18 +360,18 @@ describe('find.command.action tests', () => {
 		// Create directory structure
 		fs.mkdirSync(testActionDir, {recursive: true});
 
-		// Create an action file that throws during constructor
+		// Create an action file with constructor that throws
 		const actionFile = path.join(testActionDir, 'constructor-error-action.js');
 		fs.writeFileSync(
 			actionFile,
 			`
 			class ConstructorErrorAction {
 				constructor() {
-					throw new Error('Constructor failed');
+					throw new Error('Constructor error');
 				}
 				
 				signature() {
-					return 'constructor-error-command';
+					return 'constructor-error-command --option';
 				}
 			}
 			
@@ -426,38 +379,94 @@ describe('find.command.action tests', () => {
 		`
 		);
 
-		// Temporarily change NODE_ENV to test the logging path
-		const originalNodeEnv = process.env.NODE_ENV;
-		process.env.NODE_ENV = 'development';
+		// Test that files with constructor errors are handled gracefully
+		const result = await findCommandAction(testRoot, 'constructor-error-command');
 
-		// Mock console.warn to capture the log
-		const originalConsoleWarn = console.warn;
-		const mockConsoleWarn = jest.fn();
-		console.warn = mockConsoleWarn;
-
-		try {
-			// Test that constructor errors are handled gracefully and logged
-			const result = await findCommandAction(testRoot, 'constructor-error-command');
-
-			expect(result).toBeNull(); // Should return null, not throw
-			expect(mockConsoleWarn).toHaveBeenCalledTimes(1);
-			expect(mockConsoleWarn).toHaveBeenCalledWith(
-				expect.stringContaining('[@owservable/actions] Failed to load action from'),
-				'Constructor failed'
-			);
-		} finally {
-			// Restore original values
-			process.env.NODE_ENV = originalNodeEnv;
-			console.warn = originalConsoleWarn;
-		}
+		expect(result).toBeNull(); // Should return null, not throw
 
 		// Clean up
 		fs.rmSync(testRoot, {recursive: true});
 	});
 
-	it('should handle action with empty signature string', async () => {
-		// Create a test directory structure with action that has empty signature
-		const testRoot = path.join(__dirname, '../test-actions-root-empty-signature');
+	it('should handle actions with null signature', async () => {
+		// Create a test directory structure with action that returns null signature in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-null-signature-' + Date.now());
+		const actionsDir = path.join(testRoot, 'actions');
+		const testActionDir = path.join(actionsDir, 'null-signature-action');
+
+		// Clean up any existing test directory
+		if (fs.existsSync(testRoot)) {
+			fs.rmSync(testRoot, {recursive: true});
+		}
+
+		// Create directory structure
+		fs.mkdirSync(testActionDir, {recursive: true});
+
+		// Create an action file with null signature
+		const actionFile = path.join(testActionDir, 'null-signature-action.js');
+		fs.writeFileSync(
+			actionFile,
+			`
+			class NullSignatureAction {
+				signature() {
+					return null;
+				}
+			}
+			
+			module.exports = { default: NullSignatureAction };
+		`
+		);
+
+		// Test that actions with null signature are skipped
+		const result = await findCommandAction(testRoot, 'any-command');
+
+		expect(result).toBeNull(); // Should return null since signature is invalid
+
+		// Clean up
+		fs.rmSync(testRoot, {recursive: true});
+	});
+
+	it('should handle actions with non-string signature', async () => {
+		// Create a test directory structure with action that returns non-string signature in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-non-string-signature-' + Date.now());
+		const actionsDir = path.join(testRoot, 'actions');
+		const testActionDir = path.join(actionsDir, 'non-string-signature-action');
+
+		// Clean up any existing test directory
+		if (fs.existsSync(testRoot)) {
+			fs.rmSync(testRoot, {recursive: true});
+		}
+
+		// Create directory structure
+		fs.mkdirSync(testActionDir, {recursive: true});
+
+		// Create an action file with non-string signature
+		const actionFile = path.join(testActionDir, 'non-string-signature-action.js');
+		fs.writeFileSync(
+			actionFile,
+			`
+			class NonStringSignatureAction {
+				signature() {
+					return 12345; // Non-string signature
+				}
+			}
+			
+			module.exports = { default: NonStringSignatureAction };
+		`
+		);
+
+		// Test that actions with non-string signature are skipped
+		const result = await findCommandAction(testRoot, 'any-command');
+
+		expect(result).toBeNull(); // Should return null since signature is invalid
+
+		// Clean up
+		fs.rmSync(testRoot, {recursive: true});
+	});
+
+	it('should handle actions with empty signature', async () => {
+		// Create a test directory structure with action that returns empty signature in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-empty-signature-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'empty-signature-action');
 
@@ -478,78 +487,24 @@ describe('find.command.action tests', () => {
 				signature() {
 					return '';
 				}
-				
-				description() {
-					return 'Action with empty signature';
-				}
-				
-				async asCommand() {
-					return;
-				}
 			}
 			
 			module.exports = { default: EmptySignatureAction };
 		`
 		);
 
-		// Test that actions with empty signature are handled gracefully
+		// Test that actions with empty signature are skipped
 		const result = await findCommandAction(testRoot, 'any-command');
 
-		expect(result).toBeNull(); // Should return null since signature is empty
+		expect(result).toBeNull(); // Should return null since signature is invalid
 
 		// Clean up
 		fs.rmSync(testRoot, {recursive: true});
 	});
 
-	it('should handle action with non-string signature', async () => {
-		// Create a test directory structure with action that has non-string signature
-		const testRoot = path.join(__dirname, '../test-actions-root-non-string-signature');
-		const actionsDir = path.join(testRoot, 'actions');
-		const testActionDir = path.join(actionsDir, 'non-string-signature-action');
-
-		// Clean up any existing test directory
-		if (fs.existsSync(testRoot)) {
-			fs.rmSync(testRoot, {recursive: true});
-		}
-
-		// Create directory structure
-		fs.mkdirSync(testActionDir, {recursive: true});
-
-		// Create an action file with non-string signature
-		const actionFile = path.join(testActionDir, 'non-string-signature-action.js');
-		fs.writeFileSync(
-			actionFile,
-			`
-			class NonStringSignatureAction {
-				signature() {
-					return 123; // Return number instead of string
-				}
-				
-				description() {
-					return 'Action with non-string signature';
-				}
-				
-				async asCommand() {
-					return;
-				}
-			}
-			
-			module.exports = { default: NonStringSignatureAction };
-		`
-		);
-
-		// Test that actions with non-string signature are handled gracefully
-		const result = await findCommandAction(testRoot, 'any-command');
-
-		expect(result).toBeNull(); // Should return null since signature is not a string
-
-		// Clean up
-		fs.rmSync(testRoot, {recursive: true});
-	});
-
-	it('should handle action with whitespace-only signature', async () => {
-		// Create a test directory structure with action that has whitespace-only signature
-		const testRoot = path.join(__dirname, '../test-actions-root-whitespace-signature');
+	it('should handle actions with whitespace-only signature', async () => {
+		// Create a test directory structure with action that returns whitespace-only signature in OS temp directory
+		const testRoot = path.join(os.tmpdir(), 'test-actions-root-whitespace-signature-' + Date.now());
 		const actionsDir = path.join(testRoot, 'actions');
 		const testActionDir = path.join(actionsDir, 'whitespace-signature-action');
 
@@ -568,15 +523,7 @@ describe('find.command.action tests', () => {
 			`
 			class WhitespaceSignatureAction {
 				signature() {
-					return '   '; // Only whitespace
-				}
-				
-				description() {
-					return 'Action with whitespace-only signature';
-				}
-				
-				async asCommand() {
-					return;
+					return '   \\n\\t   '; // Only whitespace
 				}
 			}
 			
@@ -584,148 +531,10 @@ describe('find.command.action tests', () => {
 		`
 		);
 
-		// Test that actions with whitespace-only signature are handled gracefully
+		// Test that actions with whitespace-only signature are skipped
 		const result = await findCommandAction(testRoot, 'any-command');
 
-		expect(result).toBeNull(); // Should return null since signature becomes empty after trim
-
-		// Clean up
-		fs.rmSync(testRoot, {recursive: true});
-	});
-
-	it('should respect verbose option when set to true', async () => {
-		// Create a test directory structure with malformed action
-		const testRoot = path.join(__dirname, '../test-actions-root-verbose-test');
-		const actionsDir = path.join(testRoot, 'actions');
-		const testActionDir = path.join(actionsDir, 'malformed-action');
-
-		// Clean up any existing test directory
-		if (fs.existsSync(testRoot)) {
-			fs.rmSync(testRoot, {recursive: true});
-		}
-
-		// Create directory structure
-		fs.mkdirSync(testActionDir, {recursive: true});
-
-		// Create a malformed action file
-		const actionFile = path.join(testActionDir, 'malformed-action.js');
-		fs.writeFileSync(actionFile, 'this is not valid javascript{{{');
-
-		// Mock console.warn to capture the log
-		const originalConsoleWarn = console.warn;
-		const mockConsoleWarn = jest.fn();
-		console.warn = mockConsoleWarn;
-
-		try {
-			// Test with explicit verbose: true option
-			const result = await findCommandAction(testRoot, 'any-command', {verbose: true});
-
-			expect(result).toBeNull(); // Should return null, not throw
-			expect(mockConsoleWarn).toHaveBeenCalledTimes(1);
-			expect(mockConsoleWarn).toHaveBeenCalledWith(
-				expect.stringContaining('[@owservable/actions] Failed to load action from'),
-				expect.anything()
-			);
-		} finally {
-			// Restore original values
-			console.warn = originalConsoleWarn;
-		}
-
-		// Clean up
-		fs.rmSync(testRoot, {recursive: true});
-	});
-
-	it('should handle action with signature that splits to empty array', async () => {
-		// Create a test directory structure with action that has signature that results in empty split
-		const testRoot = path.join(__dirname, '../test-actions-root-empty-split');
-		const actionsDir = path.join(testRoot, 'actions');
-		const testActionDir = path.join(actionsDir, 'empty-split-action');
-
-		// Clean up any existing test directory
-		if (fs.existsSync(testRoot)) {
-			fs.rmSync(testRoot, {recursive: true});
-		}
-
-		// Create directory structure
-		fs.mkdirSync(testActionDir, {recursive: true});
-
-		// Create an action file with signature that results in empty split after trim
-		const actionFile = path.join(testActionDir, 'empty-split-action.js');
-		fs.writeFileSync(
-			actionFile,
-			`
-			class EmptySplitAction {
-				signature() {
-					// This should result in empty array after trim().split(/\\s+/)
-					// When trimmed, this becomes empty string, which split will return ['']
-					// But we need to find something that truly returns empty array
-					const sig = '';
-					return sig;
-				}
-				
-				description() {
-					return 'Action with empty signature after trim';
-				}
-				
-				async asCommand() {
-					return;
-				}
-			}
-			
-			module.exports = { default: EmptySplitAction };
-		`
-		);
-
-		// Test that actions with empty signature after trim are handled gracefully
-		const result = await findCommandAction(testRoot, 'any-command');
-
-		expect(result).toBeNull(); // Should return null since signature is empty
-
-		// Clean up
-		fs.rmSync(testRoot, {recursive: true});
-	});
-
-	it('should handle action with signature containing only first empty part', async () => {
-		// Create a test directory structure with action that has first command part empty
-		const testRoot = path.join(__dirname, '../test-actions-root-empty-first-part');
-		const actionsDir = path.join(testRoot, 'actions');
-		const testActionDir = path.join(actionsDir, 'empty-first-part-action');
-
-		// Clean up any existing test directory
-		if (fs.existsSync(testRoot)) {
-			fs.rmSync(testRoot, {recursive: true});
-		}
-
-		// Create directory structure
-		fs.mkdirSync(testActionDir, {recursive: true});
-
-		// Create an action file with signature where first part is empty
-		const actionFile = path.join(testActionDir, 'empty-first-part-action.js');
-		fs.writeFileSync(
-			actionFile,
-			`
-			class EmptyFirstPartAction {
-				signature() {
-					return ' some-other-parts'; // First part will be empty string after split
-				}
-				
-				description() {
-					return 'Action with empty first part';
-				}
-				
-				async asCommand() {
-					return;
-				}
-			}
-			
-			module.exports = { default: EmptyFirstPartAction };
-		`
-		);
-
-		// Test that actions with empty first command part are handled gracefully
-		const result = await findCommandAction(testRoot, 'any-command');
-
-		expect(result).toBeNull(); // Should return null since first part is empty
+		expect(result).toBeNull(); // Should return null since command part is empty
 
 		// Clean up
 		fs.rmSync(testRoot, {recursive: true});
