@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "1.7.0",
+	"version": "1.7.3",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
@@ -17,8 +17,9 @@
 		"url": "git+https://github.com/owservable/actions.git"
 	},
 	"scripts": {
-		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm clean & pnpm format & pnpm build & pnpm test & pnpm test_qube & pnpm docs & skeletest & strictr",
-		"build": "del /S /Q lib\\* && tsc",
+		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm clean & pnpm format & pnpm build & pnpm test & pnpm docs & skeletest & strictr",
+		"clear:lib": "del /S /Q lib\\*",
+		"build": "pnpm clear:lib & tsc",
 		"build:watch": "tsc --watch",
 		"lint": "tslint -p tsconfig.json",
 		"clean": "tslint --config tslint-imports.json --fix --project .",
@@ -36,9 +37,9 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^1.7.0",
+		"@owservable/folders": "^1.7.3",
 		"@types/lodash": "^4.17.20",
-		"@types/node": "^24.0.12",
+		"@types/node": "^24.0.13",
 		"commander": "^14.0.0",
 		"lodash": "^4.17.20"
 	},

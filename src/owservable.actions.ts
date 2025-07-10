@@ -43,3 +43,5 @@ export {
 	CommandOptionType,
 	CommandContextType
 };
+const OwservableActions = {};
+export default OwservableActions;
