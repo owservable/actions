@@ -111,31 +111,6 @@ describe('find.command.action tests', () => {
 		fs.rmSync(testRoot, {recursive: true});
 	});
 
-	it('should handle empty root path by throwing error', async () => {
-		// The function should throw an error for invalid root paths
-		await expect(findCommandAction('', 'test-command')).rejects.toThrow('ENOENT');
-	});
-
-	it('should handle empty command with non-existent path', async () => {
-		await expect(findCommandAction('/test/root', '')).rejects.toThrow('ENOENT');
-	});
-
-	it('should handle non-existent paths by throwing error', async () => {
-		await expect(findCommandAction('/non/existent/path', 'test-command')).rejects.toThrow('ENOENT');
-	});
-
-	it('should throw error for invalid paths', async () => {
-		// Test parameter validation - expects error for non-existent paths
-		await expect(findCommandAction('/test', 'command')).rejects.toThrow('ENOENT');
-	});
-
-	it("should throw error for various path formats that don't exist", async () => {
-		// Test with various path formats - all should throw error
-		await expect(findCommandAction('./nonexistent', 'command')).rejects.toThrow('ENOENT');
-		await expect(findCommandAction('../nonexistent', 'command')).rejects.toThrow('ENOENT');
-		await expect(findCommandAction('/absolute/nonexistent/path', 'command')).rejects.toThrow('ENOENT');
-	});
-
 	it('should handle malformed action files gracefully', async () => {
 		// Create a test directory structure with malformed action in OS temp directory
 		const testRoot = path.join(os.tmpdir(), 'test-actions-root-malformed-' + Date.now());

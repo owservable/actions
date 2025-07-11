@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -105,32 +105,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -143,29 +143,29 @@ export const findCommandAction: Function = (root: string, cliCommand: string): A
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, 'actions');
 &nbsp;
 	for (const actionPath of actionPaths) {
-<span class="cstat-no" title="statement not covered" >		try {</span>
-			const ActionClass: new () =&gt; ActionAsCommandInterface = <span class="cstat-no" title="statement not covered" >require(actionPath).default;</span>
-<span class="cstat-no" title="statement not covered" >			if (!ActionClass) <span class="cstat-no" title="statement not covered" >continue;</span></span>
+		try {
+			const ActionClass: new () =&gt; ActionAsCommandInterface = require(actionPath).default;
+			if (!ActionClass) continue;
 &nbsp;
-			const actionInstance: ActionAsCommandInterface = <span class="cstat-no" title="statement not covered" >new ActionClass();</span>
+			const actionInstance: ActionAsCommandInterface = new ActionClass();
 &nbsp;
 			// Add signature validation
-			const signature: string | undefined = <span class="cstat-no" title="statement not covered" >actionInstance.signature();</span>
-<span class="cstat-no" title="statement not covered" >			if (!signature || typeof signature !== 'string') <span class="cstat-no" title="statement not covered" >continue;</span></span>
+			const signature: string | undefined = actionInstance.signature();
+			if (!signature || typeof signature !== 'string') continue;
 &nbsp;
 			// Parse command from signature with validation
-			const signatureParts: string[] = <span class="cstat-no" title="statement not covered" >signature.trim().split(/\s+/);</span>
-			const actionCommand: string = <span class="cstat-no" title="statement not covered" >signatureParts[0];</span>
-<span class="cstat-no" title="statement not covered" >			if (!actionCommand || actionCommand.length === 0) <span class="cstat-no" title="statement not covered" >continue;</span></span>
+			const signatureParts: string[] = signature.trim().split(/\s+/);
+			const actionCommand: string = signatureParts[0];
+			if (!actionCommand || actionCommand.length === 0) continue;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			if (cliCommand === actionCommand) <span class="cstat-no" title="statement not covered" >return actionInstance;</span></span>
+			if (cliCommand === actionCommand) return actionInstance;
 		} catch (error) {
 			// Skip malformed or problematic action files, continue searching
-<span class="cstat-no" title="statement not covered" >			console.warn(`[@owservable/actions] Failed to load action from ${actionPath}:`, error instanceof Error ? error.message : error);</span>
+			console.warn(`[@owservable/actions] Failed to load action from ${actionPath}:`, error instanceof Error ? error.message : error);
 		}
 	}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	return null;</span>
+	return null;
 };
 export default findCommandAction;
 &nbsp;</pre></td></tr></table></pre>
@@ -175,7 +175,7 @@ export default findCommandAction;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-11T12:34:30.209Z
+                at 2025-07-11T12:58:29.220Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
