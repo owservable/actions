@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">27.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/23</span>
+                <span class='fraction'>6/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">29.41% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>5/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -104,33 +104,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -139,33 +139,33 @@ import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 &nbsp;
 import ActionAsCommandInterface from '../interfaces/action.as.command.interface';
 &nbsp;
-export const findCommandAction: Function = async (root: string, cliCommand: string): Promise&lt;ActionAsCommandInterface | null&gt; =&gt; {
+export const findCommandAction: Function = (root: string, cliCommand: string): ActionAsCommandInterface | null =&gt; {
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, 'actions');
 &nbsp;
 	for (const actionPath of actionPaths) {
-		try {
-			const ActionClass: new () =&gt; ActionAsCommandInterface = require(actionPath).default;
-			if (!ActionClass) continue;
+<span class="cstat-no" title="statement not covered" >		try {</span>
+			const ActionClass: new () =&gt; ActionAsCommandInterface = <span class="cstat-no" title="statement not covered" >require(actionPath).default;</span>
+<span class="cstat-no" title="statement not covered" >			if (!ActionClass) <span class="cstat-no" title="statement not covered" >continue;</span></span>
 &nbsp;
-			const actionInstance: ActionAsCommandInterface = new ActionClass();
+			const actionInstance: ActionAsCommandInterface = <span class="cstat-no" title="statement not covered" >new ActionClass();</span>
 &nbsp;
 			// Add signature validation
-			const signature: string | undefined = actionInstance.signature();
-			if (!signature || typeof signature !== 'string') continue;
+			const signature: string | undefined = <span class="cstat-no" title="statement not covered" >actionInstance.signature();</span>
+<span class="cstat-no" title="statement not covered" >			if (!signature || typeof signature !== 'string') <span class="cstat-no" title="statement not covered" >continue;</span></span>
 &nbsp;
 			// Parse command from signature with validation
-			const signatureParts: string[] = signature.trim().split(/\s+/);
-			const actionCommand: string = signatureParts[0];
-			if (!actionCommand || actionCommand.length === 0) continue;
+			const signatureParts: string[] = <span class="cstat-no" title="statement not covered" >signature.trim().split(/\s+/);</span>
+			const actionCommand: string = <span class="cstat-no" title="statement not covered" >signatureParts[0];</span>
+<span class="cstat-no" title="statement not covered" >			if (!actionCommand || actionCommand.length === 0) <span class="cstat-no" title="statement not covered" >continue;</span></span>
 &nbsp;
-			if (cliCommand === actionCommand) return actionInstance;
+<span class="cstat-no" title="statement not covered" >			if (cliCommand === actionCommand) <span class="cstat-no" title="statement not covered" >return actionInstance;</span></span>
 		} catch (error) {
 			// Skip malformed or problematic action files, continue searching
-			console.warn(`[@owservable/actions] Failed to load action from ${actionPath}:`, error instanceof Error ? error.message : error);
+<span class="cstat-no" title="statement not covered" >			console.warn(`[@owservable/actions] Failed to load action from ${actionPath}:`, error instanceof Error ? error.message : error);</span>
 		}
 	}
 &nbsp;
-	return null;
+<span class="cstat-no" title="statement not covered" >	return null;</span>
 };
 export default findCommandAction;
 &nbsp;</pre></td></tr></table></pre>
@@ -175,7 +175,7 @@ export default findCommandAction;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-11T12:23:56.028Z
+                at 2025-07-11T12:34:30.209Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

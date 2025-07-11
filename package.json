@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "1.7.4",
+	"version": "1.7.5",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
@@ -37,7 +37,7 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^1.7.4",
+		"@owservable/folders": "^1.7.5",
 		"@types/lodash": "^4.17.20",
 		"@types/node": "^24.0.13",
 		"commander": "^14.0.0",

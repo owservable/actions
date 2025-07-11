@@ -4,7 +4,7 @@ import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 
 import ActionAsCommandInterface from '../interfaces/action.as.command.interface';
 
-export const findCommandAction: Function = async (root: string, cliCommand: string): Promise<ActionAsCommandInterface | null> => {
+export const findCommandAction: Function = (root: string, cliCommand: string): ActionAsCommandInterface | null => {
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, 'actions');
 
 	for (const actionPath of actionPaths) {
