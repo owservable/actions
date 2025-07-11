@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "1.7.3",
+	"version": "1.7.4",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
@@ -37,7 +37,7 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^1.7.3",
+		"@owservable/folders": "^1.7.4",
 		"@types/lodash": "^4.17.20",
 		"@types/node": "^24.0.13",
 		"commander": "^14.0.0",
@@ -52,7 +52,7 @@
 		"skeletest": "^0.6.0",
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.21",
-		"strictr": "^0.3.0",
+		"strictr": "^0.4.0",
 		"ts-jest": "^29.1.1",
 		"ts-node": "^10.9.2",
 		"tslint": "^6.1.3",
