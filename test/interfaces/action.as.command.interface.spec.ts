@@ -13,11 +13,11 @@ class MockCommandAction implements ActionAsCommandInterfaceType {
 		return 'Test command description';
 	}
 
-	async handle(...args: any[]): Promise<any> {
+	async handle<T>(...args: T[]): Promise<T[]> {
 		return Promise.resolve(args);
 	}
 
-	async asCommand(options: any): Promise<void> {
+	async asCommand(options: Record<string, unknown>): Promise<void> {
 		// Mock implementation
 		return Promise.resolve();
 	}

@@ -9,7 +9,7 @@ class MockAction implements ActionInterfaceType {
 		return 'Mock action description';
 	}
 
-	async handle(...args: any[]): Promise<any> {
+	async handle<T>(...args: T[]): Promise<T[]> {
 		return Promise.resolve(args);
 	}
 }

@@ -29,7 +29,7 @@ class MockAction implements ActionAsCommandInterface {
 		return Promise.resolve();
 	}
 
-	async asCommand(options: any): Promise<void> {
+	async asCommand(options: Record<string, unknown>): Promise<void> {
 		this._asCommandCalled = true;
 		this._lastOptions = options;
 		return Promise.resolve();
