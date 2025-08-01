@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "1.8.0",
+	"version": "1.8.1",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
@@ -38,7 +38,7 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^1.8.0",
+		"@owservable/folders": "^1.8.1",
 		"@types/node": "^24.1.0",
 		"commander": "^14.0.0"
 	},
@@ -58,7 +58,7 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.7",
 		"typedoc": "^0.28.8",
-		"typescript": "^5.8.3"
+		"typescript": "^5.9.2"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
@@ -88,5 +88,5 @@
 		},
 		"neverBuiltDependencies": []
 	},
-	"packageManager": "pnpm@10.13.0"
+	"packageManager": "pnpm@10.14.0"
 }
