@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "1.8.9",
+	"version": "1.9.01",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=20"
@@ -38,8 +38,8 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^1.8.9",
-		"@types/node": "^24.5.2",
+		"@owservable/folders": "^1.9.1",
+		"@types/node": "^24.7.2",
 		"commander": "^14.0.1"
 	},
 	"devDependencies": {
@@ -52,13 +52,13 @@
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.21",
 		"strictr": "^0.5.5",
-		"ts-jest": "^29.4.4",
+		"ts-jest": "^29.4.5",
 		"ts-node": "^10.9.2",
 		"tslint": "^6.1.3",
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.7",
-		"typedoc": "^0.28.13",
-		"typescript": "^5.9.2"
+		"typedoc": "^0.28.14",
+		"typescript": "^5.9.3"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
@@ -88,5 +88,5 @@
 		},
 		"neverBuiltDependencies": []
 	},
-	"packageManager": "pnpm@10.17.1"
+	"packageManager": "pnpm@10.18.3"
 }
