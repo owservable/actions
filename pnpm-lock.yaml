@@ -26,8 +26,8 @@ importers:
   .:
     dependencies:
       '@owservable/folders':
-        specifier: ^1.9.9
-        version: 1.9.9
+        specifier: ^2.0.0
+        version: 2.0.0
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
@@ -48,8 +48,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       prettier:
-        specifier: ^3.6.2
-        version: 3.6.2
+        specifier: ^3.7.1
+        version: 3.7.1
       skeletest:
         specifier: ^0.7.3
         version: 0.7.3
@@ -383,8 +383,8 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@owservable/folders@1.9.9':
-    resolution: {integrity: sha512-n2JJZegP3gDVgNzEPn5zawM+y6wDeXecfz8o7P9bkmw8hOZWpWyNL5KMznic7I0mE4nCwRCwcEzB9u3XylKLRQ==}
+  '@owservable/folders@2.0.0':
+    resolution: {integrity: sha512-EYQJOQ+qX6MfrK3MKxxkR6gidfvU7BsO0HKl/t2Kk582XiJQpuIgRrg9z/dL483deVjI3satClRrRihsVHxj5w==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -1716,8 +1716,8 @@ packages:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+  prettier@3.7.1:
+    resolution: {integrity: sha512-RWKXE4qB3u5Z6yz7omJkjWwmTfLdcbv44jUVHC5NpfXwFGzvpQM798FGv/6WNK879tc+Cn0AAyherCl1KjbyZQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2639,7 +2639,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@owservable/folders@1.9.9':
+  '@owservable/folders@2.0.0':
     dependencies:
       '@types/node': 24.10.1
 
@@ -4067,7 +4067,7 @@ snapshots:
     dependencies:
       find-up: 4.1.0
 
-  prettier@3.6.2: {}
+  prettier@3.7.1: {}
 
   pretty-format@30.2.0:
     dependencies:
