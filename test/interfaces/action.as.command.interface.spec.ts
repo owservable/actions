@@ -17,7 +17,7 @@ class MockCommandAction implements ActionAsCommandInterfaceType {
 		return Promise.resolve(args);
 	}
 
-	async asCommand(options: Record<string, unknown>): Promise<void> {
+	async asCommand(_options: Record<string, unknown>): Promise<void> {
 		// Mock implementation
 		return Promise.resolve();
 	}

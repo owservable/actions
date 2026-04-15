@@ -19,7 +19,12 @@ module.exports = {
 
 	// TypeScript configuration
 	transform: {
-		'^.+\\.ts$': 'ts-jest'
+		'^.+\\.ts$': [
+			'ts-jest',
+			{
+				tsconfig: 'tsconfig.test.json'
+			}
+		]
 	},
 
 	// Module file extensions

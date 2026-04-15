@@ -5,7 +5,7 @@ import {Command} from 'commander';
 import ActionAsCommandInterface from '../interfaces/action.as.command.interface';
 import getOptionAndDefaultValue from '../functions/get.option.and.default.value';
 
-export const runActionAsCommand: Function = async (action: ActionAsCommandInterface): Promise<void> => {
+export const runActionAsCommand = async (action: ActionAsCommandInterface): Promise<void> => {
 	const program: Command = new Command();
 	const signature: string = action.signature();
 	const actionCommand: string = signature.split(' ')[0];
