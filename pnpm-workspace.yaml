@@ -42,6 +42,9 @@ overrides:
   'uuid@<14.0.0': '>=14.0.0'
 
 minimumReleaseAgeExclude:
-  - '@owservable/folders@2.2.0'
+  - '@owservable/folders@2.2.0 || 2.2.1'
   - request@2.88.3
   - brace-expansion@5.0.6
+  - form-data@4.0.6
+  - markdown-it@14.1.2
+  - linkify-it@5.0.1
