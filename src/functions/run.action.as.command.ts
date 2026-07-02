@@ -15,7 +15,7 @@ export const runActionAsCommand = async (action: ActionAsCommandInterface): Prom
 		.command(actionCommand)
 		.description(action.description());
 
-	const options: string[] | null = signature.match(/{([^}]*)}/g);
+	const options: string[] | null = signature.match(/\{([^{}]*)\}/g);
 	if (options) {
 		options.forEach((config: string): void => {
 			const {option, defaultValue}: {option: string; defaultValue: string | undefined} = getOptionAndDefaultValue(config);

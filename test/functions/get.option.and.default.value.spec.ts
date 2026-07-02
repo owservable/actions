@@ -10,7 +10,7 @@ describe('get.option.and.default.value tests', () => {
 
 	it('getOptionAndDefaultValue works', () => {
 		const signature = 'some_command {-f, --foo <foo>} {-b, --boo <boo>}';
-		const options: string[] = signature.match(/{([^}]*)}/g);
+		const options: string[] = signature.match(/\{([^{}]*)\}/g);
 		expect(options).toHaveLength(2);
 
 		const {option: option1, defaultValue: defaultValue1} = getOptionAndDefaultValue(options[0]);
@@ -24,7 +24,7 @@ describe('get.option.and.default.value tests', () => {
 
 	it('getOptionAndDefaultValue works with default value', () => {
 		const signature = 'some_command {-f, --foo <foo>=yei} {-b, --boo <boo>}';
-		const options: string[] = signature.match(/{([^}]*)}/g);
+		const options: string[] = signature.match(/\{([^{}]*)\}/g);
 		expect(options).toHaveLength(2);
 
 		const {option: option1, defaultValue: defaultValue1} = getOptionAndDefaultValue(options[0]);

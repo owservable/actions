@@ -13,7 +13,7 @@ describe('find.command.action tests', () => {
 
 	it('should be a function that accepts root and cliCommand parameters', () => {
 		expect(typeof findCommandAction).toBe('function');
-		expect(findCommandAction.length).toBe(2);
+		expect(findCommandAction).toHaveLength(2);
 	});
 
 	it('should find and return matching action when it exists', async () => {

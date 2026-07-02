@@ -71,11 +71,11 @@ describe('run.action.as.command tests', () => {
 	it('should be an async function', () => {
 		expect(typeof runActionAsCommand).toBe('function');
 		// Test basic function properties without executing
-		expect(runActionAsCommand.length).toBe(1);
+		expect(runActionAsCommand).toHaveLength(1);
 	});
 
 	it('should accept an ActionAsCommandInterface parameter', () => {
-		expect(runActionAsCommand.length).toBe(1);
+		expect(runActionAsCommand).toHaveLength(1);
 		expect(typeof runActionAsCommand).toBe('function');
 	});
 
