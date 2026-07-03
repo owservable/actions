@@ -2,6 +2,8 @@
 
 # @owservable/actions
 
+[📖 API Docs](https://owservable.github.io/actions/docs/) · [✅ Coverage](https://owservable.github.io/actions/coverage/)
+
 A TypeScript library implementing the Action Pattern for creating reusable, executable units of work that can be run as commands, cronjobs, watchers, workers, or controllers.
 
 ## 🚀 Features
