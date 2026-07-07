@@ -5,6 +5,7 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - '@owservable/folders'
+  - request@2.88.3
 
 updateConfig:
   ignoreDependencies:
