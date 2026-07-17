@@ -113,58 +113,28 @@ describe('run.action.as.command tests', () => {
 		expect(mockAction.asCommand({})).toBeInstanceOf(Promise);
 	});
 
-	it('should execute action with simple command signature', async () => {
-		const mockAction = new MockAction('simple-command', 'A simple command');
-		process.argv = ['node', 'test', 'simple-command'];
-
-		await runActionAsCommand(mockAction);
-
-		expect(mockAction.wasAsCommandCalled()).toBe(true);
-		expect(mockAction.getLastOptions()).toBeDefined();
-	});
-
-	it('should execute action with options in signature', async () => {
-		const mockAction = new MockAction('test-command {--verbose}', 'Test command with verbose option');
-		process.argv = ['node', 'test', 'test-command', '--verbose'];
-
-		await runActionAsCommand(mockAction);
-
-		expect(mockAction.wasAsCommandCalled()).toBe(true);
-		const options = mockAction.getLastOptions();
-		expect(options).toBeDefined();
-		expect(options.verbose).toBe(true);
-	});
-
-	it('should handle action with multiple options', async () => {
-		const mockAction = new MockAction('multi-command {--verbose} {--output <file>}', 'Multi-option command');
-		process.argv = ['node', 'test', 'multi-command', '--verbose', '--output', 'test.txt'];
+	it.each([
+		{name: 'simple command signature', signature: 'simple-command', argv: ['node', 'test', 'simple-command'], expectedOptions: {}},
+		{name: 'options in signature', signature: 'test-command {--verbose}', argv: ['node', 'test', 'test-command', '--verbose'], expectedOptions: {verbose: true}},
+		{
+			name: 'multiple options',
+			signature: 'multi-command {--verbose} {--output <file>}',
+			argv: ['node', 'test', 'multi-command', '--verbose', '--output', 'test.txt'],
+			expectedOptions: {verbose: true, output: 'test.txt'}
+		},
+		{name: 'without options', signature: 'basic-command', argv: ['node', 'test', 'basic-command'], expectedOptions: {}},
+		{name: 'null options regex match', signature: 'no-options-command', argv: ['node', 'test', 'no-options-command'], expectedOptions: {}}
+	])('should execute action with $name', async ({signature, argv, expectedOptions}) => {
+		const mockAction = new MockAction(signature, 'Test command');
+		process.argv = argv;
 
 		await runActionAsCommand(mockAction);
 
 		expect(mockAction.wasAsCommandCalled()).toBe(true);
 		const options = mockAction.getLastOptions();
 		expect(options).toBeDefined();
-		expect(options.verbose).toBe(true);
-		expect(options.output).toBe('test.txt');
-	});
-
-	it('should handle action without options', async () => {
-		const mockAction = new MockAction('basic-command', 'Basic command without options');
-		process.argv = ['node', 'test', 'basic-command'];
-
-		await runActionAsCommand(mockAction);
-
-		expect(mockAction.wasAsCommandCalled()).toBe(true);
-		expect(mockAction.getLastOptions()).toBeDefined();
-	});
-
-	it('should handle action with null options regex match', async () => {
-		const mockAction = new MockAction('no-options-command', 'Command with no option patterns');
-		process.argv = ['node', 'test', 'no-options-command'];
-
-		await runActionAsCommand(mockAction);
-
-		expect(mockAction.wasAsCommandCalled()).toBe(true);
-		expect(mockAction.getLastOptions()).toBeDefined();
+		for (const [key, value] of Object.entries(expectedOptions)) {
+			expect(options[key]).toBe(value);
+		}
 	});
 });

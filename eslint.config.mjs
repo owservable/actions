@@ -64,5 +64,11 @@ export default tseslint.config(
 		rules: {
 			'sonarjs/slow-regex': 'off'
 		}
+	},
+	{
+		files: ['src/functions/find.command.action.ts'],
+		rules: {
+			'@typescript-eslint/no-require-imports': 'off'
+		}
 	}
 );
