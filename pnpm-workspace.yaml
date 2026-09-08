@@ -1,5 +1,6 @@
 allowBuilds:
   '@owservable/folders': true
+  '@parcel/watcher': true
   es5-ext: true
   unrs-resolver: true
 
