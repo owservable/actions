@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/actions",
-	"version": "3.1.6",
+	"version": "3.1.7",
 	"description": "actions pattern",
 	"engines": {
 		"node": ">=24.12.0"
@@ -18,48 +18,48 @@
 	},
 	"minimumReleaseAge": 2880,
 	"scripts": {
-		"all": "pnpm i & pnpm dedupe & pnpm audit --fix=update & pnpm clean & pnpm format & pnpm build & skeletest -f & strictr -f & pnpm test & pnpm run docs @owservable/actions",
-		"clear:lib": "del /S /Q lib\\*",
-		"build": "pnpm clear:lib & tsc",
+		"all": "pnpm i && pnpm dedupe && (pnpm audit --fix=update || echo audit: unresolved vulnerabilities remain) && pnpm clean && pnpm format && pnpm build && skeletest -f && strictr -f && pnpm test && pnpm run docs @owservable/actions",
+		"clear:lib": "node -e \"require('node:fs').rmSync('lib',{recursive:true,force:true})\"",
+		"build": "pnpm clear:lib && tsc",
 		"build:watch": "tsc --watch",
 		"lint": "eslint .",
 		"clean": "eslint --fix .",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-		"sync": "git pull & git fetch origin & git merge origin/main & pnpm i & git branch",
+		"sync": "git pull && git fetch origin && git merge origin/main && pnpm i && git branch",
 		"docs": "typedoc --readme none --out docs src/owservable.actions.ts",
 		"test": "jest --coverage --config jest.config.js",
 		"quick": "jest --config jest.config.js",
-		"coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+		"coveralls": "coveralls < coverage/lcov.info",
 		"test_qube": "jest --coverage --config jest.config.js --reporter=jest-sonar-reporter",
 		"up": "pnpm up -i",
 		"latest": "pnpm up -i -L",
-		"l": "pnpm i & pnpm latest",
-		"srctree": "dir src /s /b > srctree.txt",
+		"l": "pnpm i && pnpm latest",
+		"srctree": "node -e \"const fs=require('node:fs'),path=require('node:path');fs.readdirSync('src',{recursive:true}).forEach(f=>console.log(path.resolve('src',f)))\" > srctree.txt",
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/folders": "^3.1.6",
-		"@types/node": "^26.4.1",
+		"@owservable/folders": "^3.1.7",
+		"@types/node": "^26.6.2",
 		"commander": "^14.0.3"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@types/jest": "^30.0.0",
-		"coveralls": "^3.1.1",
-		"eslint": "^10.10.0",
+		"coveralls": "coveralls < coverage/lcov.info",
+		"eslint": "^10.11.0",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-sonarjs": "^4.2.0",
-		"jest": "^30.5.1",
+		"eslint-plugin-sonarjs": "^4.2.1",
+		"jest": "^30.5.2",
 		"jest-sonar-reporter": "^2.0.0",
-		"prettier": "^3.9.6",
+		"prettier": "^3.9.9",
 		"skeletest": "^0.7.5",
 		"source-map-support": "^0.5.21",
 		"strictr": "^0.5.7",
-		"ts-jest": "^29.4.12",
+		"ts-jest": "^29.4.13",
 		"ts-node": "^10.9.2",
 		"typedoc": "^0.28.20",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.69.0"
+		"typescript-eslint": "^8.70.1"
 	},
-	"packageManager": "pnpm@11.25.0"
+	"packageManager": "pnpm@12.6.0"
 }
